@@ -5,7 +5,6 @@
 
 /**
  * A users itinerary consists of EventSlots that describe different attractions
- * 
  * @author Dan
  */
 public class EventSlot {
