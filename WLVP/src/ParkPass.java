@@ -8,5 +8,21 @@
  * @author Dan
  */
 public class ParkPass {
+    private int credits;
+    private Itinerary itinerary;
+    
+    public ParkPass(int credits,Itinerary itinerary){
+        this.credits = credits;
+        this.itinerary = itinerary;
+        
+    }
+    public void purchaseCredits(int amount){
+        
+    }
+    public Itinerary getItinerary(){
+        return this.itinerary;
+    }
+        
+    
     
 }
