@@ -18,6 +18,15 @@ public class Report {
     
     
     /**
+     * Default constructor
+     * @param type The ReportType of this report
+     */
+    public Report(ReportType type) {
+        this.type = type;
+    }
+    
+    
+    /**
      * @return ReportType The type of this report object
      */
     public ReportType getReportType() {
