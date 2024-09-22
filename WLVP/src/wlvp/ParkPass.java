@@ -6,7 +6,7 @@ package wlvp;
  */
 
 /**
- *
+ *  The ParkPass holds an Itinerary and the amount of credits on the ParkPass
  * @author Dan
  */
 public class ParkPass {
@@ -18,9 +18,18 @@ public class ParkPass {
         this.itinerary = itinerary;
         
     }
+    /**
+     * Adds credits to the users ParkPass
+     * @param amount 
+     */
+ 
     public void purchaseCredits(int amount){
-        
+          
     }
+    /**
+     * Returns an Itinerary
+     * @return Itinerary
+     */
     public Itinerary getItinerary(){
         return this.itinerary;
     }
