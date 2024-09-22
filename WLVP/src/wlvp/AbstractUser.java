@@ -14,8 +14,9 @@ public abstract class AbstractUser {
     /**
      * Creates a new report
      * @param type The ReportType of the report to be created
+     * @return ReportType The newly generated report
      */
-    protected void createReport(ReportType type) {
-        
+    protected ReportType createReport(ReportType type) {
+        return null;
     }
 }
