@@ -1,4 +1,4 @@
-Wallyland Vaction Planner
+Wallyland Vacation Planner
 
 Group 2
 
