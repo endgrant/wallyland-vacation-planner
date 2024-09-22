@@ -11,16 +11,10 @@ import java.util.ArrayList;
 /**
  * A user's Itinerary is represented by an array of Events.
  * 
- * 
- * 
- *
- * @author Dan
+ * @author Daniel
  */
 public class Itinerary {
     private ArrayList<EventSlot> Events = new ArrayList<EventSlot>();
-   
-    
-    
     public Itinerary(ArrayList<EventSlot> events){
         
     }
@@ -32,12 +26,29 @@ public class Itinerary {
  * @author Dan
  */
     public void addEvent(AbstractAttraction attraction,int guestCount){
-        
+   /**
+    *Adds an AbstractAttraction to a users Itinerary
+    * 
+    * @param AbstractAttraction  
+    * @param guestCount
+    * @author Daniel
+    */ 
     }
+    
+  /**
+   * Removes an event from a users Itinerary
+   * 
+   * @param event
+   */
+    
     public void removeEvent(EventSlot event){
         
     }
-    
+   
+    /**
+     *  Returns an event from a users Itinerary
+     * @author Daniel
+     */
     public void getEvents(){
        
     }
