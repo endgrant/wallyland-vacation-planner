@@ -46,10 +46,11 @@ public class Itinerary {
     }
    
     /**
-     *  Returns an event from a users Itinerary
+     *  Returns the events from a users Itinerary
      * @author Daniel
+     * @return ArrayList<EventSlot>
      */
-    public void getEvents(){
-       
+    public ArrayList<EventSlot> getEvents(){
+       return Events;
     }
 }
