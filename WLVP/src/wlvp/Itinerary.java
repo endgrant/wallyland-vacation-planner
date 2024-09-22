@@ -48,7 +48,7 @@ public class Itinerary {
     /**
      *  Returns the events from a users Itinerary
      * @author Daniel
-     * @return ArrayList<EventSlot>
+     * @return a list of EventSlot
      */
     public ArrayList<EventSlot> getEvents(){
        return Events;
