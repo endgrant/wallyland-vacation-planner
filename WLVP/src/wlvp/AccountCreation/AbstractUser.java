@@ -1,4 +1,6 @@
-package wlvp;
+package wlvp.AccountCreation;
+
+import wlvp.IncidentReporting.ReportType;
 
 /**
  * Abstract base class for users

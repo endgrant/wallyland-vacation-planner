@@ -1,4 +1,4 @@
-package wlvp;
+package wlvp.IncidentReporting;
 
 /**
  * Report type enumerator

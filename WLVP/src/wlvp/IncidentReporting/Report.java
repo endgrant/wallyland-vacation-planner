@@ -1,4 +1,4 @@
-package wlvp;
+package wlvp.IncidentReporting;
 
 /**
  * Represents a user-submitted report such as an incident report or service review

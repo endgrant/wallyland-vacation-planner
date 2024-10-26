@@ -1,4 +1,6 @@
-package wlvp;
+package wlvp.AccountCreation;
+
+import wlvp.ParkPass.ParkPass;
 
 /**
  * Represents a guest user

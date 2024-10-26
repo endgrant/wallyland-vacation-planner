@@ -1,4 +1,6 @@
-package wlvp;
+package wlvp.ParkPass;
+
+import wlvp.Itinerary.Itinerary;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

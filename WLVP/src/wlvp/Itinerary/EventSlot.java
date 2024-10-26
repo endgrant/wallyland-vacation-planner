@@ -1,4 +1,6 @@
-package wlvp;
+package wlvp.Itinerary;
+
+import wlvp.Attraction.AbstractAttraction;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

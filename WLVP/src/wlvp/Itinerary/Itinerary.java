@@ -1,6 +1,7 @@
-package wlvp;
+package wlvp.Itinerary;
 
 
+import wlvp.Attraction.AbstractAttraction;
 import java.util.ArrayList;
 
 /*
