@@ -33,8 +33,9 @@ public class ParkPassView extends javax.swing.JFrame {
         addCreditsButton = new javax.swing.JButton();
         toItineraryButton = new javax.swing.JButton();
         toAccountButton = new javax.swing.JButton();
-        logoutButton = new javax.swing.JButton();
         viewUserList = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        guestListView = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,9 +54,14 @@ public class ParkPassView extends javax.swing.JFrame {
 
         toAccountButton.setText("Account");
 
-        logoutButton.setText("Log Out");
+        viewUserList.setText("Refresh");
 
-        viewUserList.setText("View User List");
+        guestListView.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(guestListView);
 
         javax.swing.GroupLayout parkPassPanelLayout = new javax.swing.GroupLayout(parkPassPanel);
         parkPassPanel.setLayout(parkPassPanelLayout);
@@ -63,27 +69,31 @@ public class ParkPassView extends javax.swing.JFrame {
             parkPassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(parkPassPanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(parkPassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(parkPassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(parkPassPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addGap(36, 36, 36))
                     .addGroup(parkPassPanelLayout.createSequentialGroup()
                         .addComponent(creditsLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(creditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(creditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(parkPassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(parkPassPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(toItineraryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(parkPassPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(addCreditsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))
                     .addGroup(parkPassPanelLayout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(logoutButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, parkPassPanelLayout.createSequentialGroup()
                         .addComponent(toAccountButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(parkPassLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(parkPassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addCreditsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(toItineraryButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                        .addGap(136, 136, 136)
+                        .addComponent(parkPassLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(parkPassPanelLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(268, 268, 268)
                 .addComponent(viewUserList)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         parkPassPanelLayout.setVerticalGroup(
             parkPassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,11 +108,11 @@ public class ParkPassView extends javax.swing.JFrame {
                     .addComponent(creditsLabel)
                     .addComponent(creditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addCreditsButton))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewUserList)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                .addComponent(logoutButton)
-                .addGap(33, 33, 33))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,11 +144,12 @@ public class ParkPassView extends javax.swing.JFrame {
     public javax.swing.JButton addCreditsButton;
     private javax.swing.JTextField creditTextField;
     private javax.swing.JLabel creditsLabel;
-    public javax.swing.JButton logoutButton;
+    private javax.swing.JList<String> guestListView;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel parkPassLabel;
     private javax.swing.JPanel parkPassPanel;
     public javax.swing.JButton toAccountButton;
     private javax.swing.JButton toItineraryButton;
-    public javax.swing.JButton viewUserList;
+    private javax.swing.JButton viewUserList;
     // End of variables declaration//GEN-END:variables
 }
