@@ -4,54 +4,54 @@ package wlvp.Itinerary;
 import wlvp.Attraction.AbstractAttraction;
 import java.util.ArrayList;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 /**
  * A user's Itinerary is represented by an array of Events.
- * 
- * @author Daniel
+ * @author Dan, Grant
  */
 public class Itinerary {
-    private ArrayList<EventSlot> Events = new ArrayList<EventSlot>();
-    public Itinerary(ArrayList<EventSlot> events){
-        
+    private ArrayList<EventSlot> events;
+    
+    
+    /**
+     * Default constructor 
+     */
+    public Itinerary() {
+        events = new ArrayList<>();
     }
     
     
     /**
- *  Adds an event to a users Itinerary with a given attraction and the amount of
- * guests attending.
- * @author Dan
- */
-    public void addEvent(AbstractAttraction attraction,int guestCount){
-   /**
-    *Adds an AbstractAttraction to a users Itinerary
-    * 
-    * @param AbstractAttraction  
-    * @param guestCount
-    * @author Daniel
-    */ 
+     * Events parameterized constructor
+     * @param events 
+     */
+    public Itinerary(ArrayList<EventSlot> events){
+        this.events = events;
     }
     
-  /**
-   * Removes an event from a users Itinerary
-   * 
-   * @param event
-   */
     
+    // MODIFY TO USE AN EventSlot OBJECT INSTEAD
+    /**
+     *  Adds an event to a users Itinerary with a given attraction and the amount of guests attending.
+     */
+    public void addEvent(AbstractAttraction attraction,int guestCount){
+   
+    }
+    
+    
+    /**
+     * Removes an event from the itinerary
+     * @param event
+     */
     public void removeEvent(EventSlot event){
         
     }
    
+    
     /**
-     *  Returns the events from a users Itinerary
-     * @author Daniel
-     * @return a list of EventSlot
+     * @return List of EventSlots in the itinerary
      */
     public ArrayList<EventSlot> getEvents(){
-       return Events;
+       return events;
     }
 }
