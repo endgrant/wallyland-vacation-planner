@@ -71,6 +71,11 @@
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                  <Component id="viewUserList" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -88,7 +93,9 @@
                       <Component id="creditTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="addCreditsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="136" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="viewUserList" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="95" max="32767" attributes="0"/>
                   <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
@@ -140,6 +147,14 @@
         <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Log Out"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="viewUserList">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="View User List"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
