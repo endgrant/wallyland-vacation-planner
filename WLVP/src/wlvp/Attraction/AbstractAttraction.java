@@ -24,6 +24,13 @@ public abstract class AbstractAttraction {
         return attractionStatus;
     }
 
+     /**
+     * Allows employee to set the status of an attraction 
+     */
+    public void setStatus(boolean status) {
+        this.attractionStatus = status;
+    }
+    
     /**
      * Creates a new attraction with the specified ID and status.
      * @param ID Unique identifier for the attraction
