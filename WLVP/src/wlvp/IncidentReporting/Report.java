@@ -1,10 +1,18 @@
 package wlvp.IncidentReporting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents a user-submitted report such as an incident report or service review
  * @author Grant
  */
 public class Report {
+    /**
+     * Stores all reports
+     */
+    private static List<Report> allReports = new ArrayList<>();
+
     /**
      * Unique integer identity
      */
@@ -16,15 +24,21 @@ public class Report {
      */
     private ReportType type;
     
-    
+     
     /**
      * Default constructor
      * @param type The ReportType of this report
      */
     public Report(ReportType type) {
         this.type = type;
+        this.ID = generateID(); 
+        addReport(this);
+
     }
     
+    private static int generateID() {
+        return allReports.size() + 1; // Basic incremented ID
+    }
     
     /**
      * @return ReportType The type of this report object
@@ -32,4 +46,19 @@ public class Report {
     public ReportType getReportType() {
         return type;
     }
+    
+     /**
+     * Adds new Report to list
+     */
+     private static void addReport(Report report) {
+        allReports.add(report);
+    }
+     
+     /**
+     * @return all reports that have been added to list
+     */
+    public static List<Report> getAllReports() {
+        return allReports;
+    }
+
 }
