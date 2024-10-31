@@ -12,17 +12,10 @@ import java.awt.event.ActionListener;
  * @author Daniel
  */
 public class ParkPassController implements ActionListener {
-    private ParkPassView parkPassView;
-    private ParkPass parkPass;
+    private static ParkPassView parkPassView;
+    private static ParkPass parkPass;
     
-    public ParkPassController(ParkPass parkPass){
-        
-        parkPassView = new ParkPassView(this);
-        parkPassView.setVisible(true);
-        
-        
-        
-    }
+    
     public static void goToParkPassView(){
         parkPassView.setVisible(true);
     }
