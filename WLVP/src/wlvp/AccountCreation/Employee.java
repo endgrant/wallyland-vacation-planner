@@ -19,14 +19,12 @@ public class Employee extends AbstractUser {
     /**
      * Default constructor
      * @param id
-     * @param username
      * @param email
      * @param password
      * @param type The EmployeeType of this employee
      */
-    public Employee(int id, String username, String email, String password, EmployeeType type) {
+    public Employee(int id, String email, String password, EmployeeType type) {
         this.ID = id;
-        this.username = username;
         this.email = email;
         this.password = password;
         this.type = type;
