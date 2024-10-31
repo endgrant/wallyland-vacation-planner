@@ -25,7 +25,6 @@ public class Guest extends AbstractUser {
      */
     public Guest(int id, String username, String email, String password) {
         this.ID = id;
-        this.username = username;
         this.email = email;
         this.password = password;
     }

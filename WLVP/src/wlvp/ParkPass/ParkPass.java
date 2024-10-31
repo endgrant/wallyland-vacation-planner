@@ -9,7 +9,7 @@ import wlvp.Itinerary.Itinerary;
  * @author Dan, Grant
  */
 public class ParkPass {
-    private final Guest owner;
+    private final int ownerId;
     private int credits;
     private final Itinerary itinerary;
     private final ArrayList<Guest> guests;
@@ -17,10 +17,10 @@ public class ParkPass {
     
     /**
      * Default constructor
-     * @param owner The creator of the pass
+     * @param ownerId The owner id of the pass
      */
-    public ParkPass(Guest owner) {
-        this.owner = owner;
+    public ParkPass(int ownerId) {
+        this.ownerId = ownerId;
         credits = 0;
         itinerary = new Itinerary();
         guests = new ArrayList<>();
@@ -29,11 +29,11 @@ public class ParkPass {
     
     /**
      * Credits parameterized constructor
-     * @param owner The creator of the pass
+     * @param ownerId The owner id of the pass
      * @param credits The number of credits to initialize the pass with
      */
-    public ParkPass(Guest owner, int credits){
-        this.owner = owner;
+    public ParkPass(int ownerId, int credits){
+        this.ownerId = ownerId;
         this.credits = credits;
         itinerary = new Itinerary();
         guests = new ArrayList<>();
@@ -43,8 +43,8 @@ public class ParkPass {
     /**
      * @return The owner of the park pass
      */
-    public Guest getOwner() {
-        return owner;
+    public int getOwnerId() {
+        return ownerId;
     }
     
     

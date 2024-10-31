@@ -8,7 +8,8 @@ import wlvp.WLVP;
  * @author Grant
  */
 public class AccountController {
-    private int nextUserId = 0;
+    private static int nextUserId = 0;
+    private static AccountCreationView accountCreationView;
     
     
     /**
@@ -72,7 +73,7 @@ public class AccountController {
      * @param type EmployeeType; Leave null when creating a guest user
      * @return The newly created user object
      */
-    public AbstractUser createUser(String username, String email, String password, EmployeeType type) {
+    public static AbstractUser createUser(String username, String email, String password, EmployeeType type) {
         if (type == null) {
             Guest guest = new Guest(nextUserId, username, email, password);
             nextUserId++;
@@ -86,11 +87,10 @@ public class AccountController {
     
     
     /**
-     * Navigates to the park pass interface
+     * Navigates to the account creation interface
      */
-    public void navigateToParkPass() {
-        WLVP.accountView.setVisible(false);
-        WLVP.passView.setVisible(true);
+    public static void navigateToAccountCreation() {
+        accountCreationView.setVisible(true);
     }
     
     
@@ -99,7 +99,7 @@ public class AccountController {
      * @param type The type of the report
      * @return The newly created report object
      */
-    public Report createReport(ReportType type) {
+    public static Report createReport(ReportType type) {
         return new Report(type);
     }
     
@@ -107,7 +107,7 @@ public class AccountController {
     /**
      * Signs the user out and returns to the landing page
      */
-    public void logout() {
+    public static void logout() {
         
     }
 }
