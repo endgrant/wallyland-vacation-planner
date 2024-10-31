@@ -16,13 +16,23 @@ public class ParkPassController implements ActionListener {
     private ParkPass parkPass;
     
     public ParkPassController(ParkPass parkPass){
-        this.parkPass = parkPass;
+        
         parkPassView = new ParkPassView(this);
         parkPassView.setVisible(true);
         
         
         
     }
+    public static void goToParkPassView(){
+        parkPassView.setVisible(true);
+    }
+    
+    public static ParkPass createNewParkPass(int id){
+        ParkPass newParkPass = new ParkPass(id);
+        return newParkPass;
+        
+    }
+    
     
     public ParkPass getParkPass(){
         return parkPass;
