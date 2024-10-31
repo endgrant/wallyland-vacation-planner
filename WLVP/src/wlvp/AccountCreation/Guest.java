@@ -30,6 +30,7 @@ public class Guest extends AbstractUser {
         this.password = password;
     }
     
+    
      public void setParkPass(ParkPass pass) {
         this.pass = pass;
     }
