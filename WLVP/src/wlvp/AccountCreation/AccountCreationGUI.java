@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import wlvp.IncidentReporting.ReportType;
 
 // Main GUI class
 public class AccountCreationGUI extends JFrame {
@@ -82,7 +83,7 @@ public class AccountCreationGUI extends JFrame {
 
         // Create Report Button for Guest
         createReportButton = new JButton("Create Report");
-        createReportButton.addActionListener(e -> createReport(new Guest()));
+        createReportButton.addActionListener(e -> createReport(new Guest(0, "testguest", "test@example.com", "testpass")));
         panel.add(createReportButton);
 
         // Back to Account Creation Screen
@@ -109,7 +110,7 @@ public class AccountCreationGUI extends JFrame {
         panel.add(welcomeLabel);
 
         // Employee Type
-        JLabel employeeTypeLabel = new JLabel("Employee Type: " + employee.type, JLabel.CENTER);
+        JLabel employeeTypeLabel = new JLabel("Employee Type: " + employee.getType(), JLabel.CENTER);
         panel.add(employeeTypeLabel);
 
         // Create Report Button for Employee
@@ -128,21 +129,21 @@ public class AccountCreationGUI extends JFrame {
     }
 
     private void createGuest() {
-        Guest guest = new Guest();
+        Guest guest = new Guest(0, "testguest", "test@example.com", "testpass");
         JOptionPane.showMessageDialog(this, "Guest account created successfully!");
         showGuestDashboard(guest);
     }
 
     private void createEmployee() {
         EmployeeType selectedType = (EmployeeType) employeeTypeComboBox.getSelectedItem();
-        Employee employee = new Employee(selectedType);
+        Employee employee = new Employee(0, "testemployee", "test@example.com", "testpass", selectedType);
         JOptionPane.showMessageDialog(this, "Employee account created successfully!");
         showEmployeeDashboard(employee);
     }
 
     private void createReport(AbstractUser user) {
         // Placeholder: Simulate creating a report of a specific type
-        ReportType reportType = ReportType.INCIDENT; // Example ReportType, replace with actual enum values
+        ReportType reportType = ReportType.Incident; // Example ReportType, replace with actual enum values
         user.createReport(reportType);
         JOptionPane.showMessageDialog(this, "Report created successfully for type: " + reportType);
     }

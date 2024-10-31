@@ -13,7 +13,7 @@ public class Employee extends AbstractUser {
     /**
      * The EmployeeType of this employee
      */
-    private EmployeeType type;
+    private final EmployeeType type;
     
     
     /**
@@ -33,7 +33,15 @@ public class Employee extends AbstractUser {
     }
     
   
-     public List <Report> viewReports() {
+    /**
+     * @return The type of this employee
+     */
+    public EmployeeType getType() {
+        return type;
+    }
+    
+    
+    public List <Report> viewReports() {
          return getAllReports(); 
     }
 
