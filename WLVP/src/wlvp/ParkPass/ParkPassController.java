@@ -22,7 +22,12 @@ public class ParkPassController implements ActionListener {
     
     public static ParkPass createNewParkPass(int id){
         ParkPass newParkPass = new ParkPass(id);
+        parkPass = newParkPass;
         return newParkPass;
+        
+    }
+    public static void addCredits(){
+       
         
     }
     

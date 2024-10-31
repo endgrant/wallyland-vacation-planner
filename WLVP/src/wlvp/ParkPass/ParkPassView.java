@@ -26,8 +26,8 @@ public class ParkPassView extends javax.swing.JFrame {
         
     }
     public void parsePass(ParkPass parkPass){
-        creditTextField.setText(parkPass.getCredits()+ "");
         
+        availableCreditsTextField.setText(parkPass.getCredits()+ "");
         
         
     }
@@ -51,6 +51,8 @@ public class ParkPassView extends javax.swing.JFrame {
         viewUserList = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         guestListView = new javax.swing.JList<>();
+        availableCreditsTextField = new javax.swing.JTextField();
+        availableCreditLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,16 +62,16 @@ public class ParkPassView extends javax.swing.JFrame {
         parkPassLabel.setText("Park Pass");
         parkPassLabel.setToolTipText("");
         parkPassLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        parkPassPanel.add(parkPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 7, -1, 38));
+        parkPassPanel.add(parkPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, 20));
 
         creditsLabel.setText("Credit Amount");
-        parkPassPanel.add(creditsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 73, -1, -1));
+        parkPassPanel.add(creditsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         creditTextField.setText("0.00");
-        parkPassPanel.add(creditTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 70, -1, -1));
+        parkPassPanel.add(creditTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         addCreditsButton.setText("Add Credits");
-        parkPassPanel.add(addCreditsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 108, -1));
+        parkPassPanel.add(addCreditsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 108, -1));
 
         toItineraryButton.setText("Itinerary");
         parkPassPanel.add(toItineraryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 6, 92, -1));
@@ -88,6 +90,10 @@ public class ParkPassView extends javax.swing.JFrame {
         jScrollPane1.setViewportView(guestListView);
 
         parkPassPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 153, 288, 228));
+        parkPassPanel.add(availableCreditsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 100, -1));
+
+        availableCreditLabel.setText("Credits Available");
+        parkPassPanel.add(availableCreditLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +122,8 @@ public class ParkPassView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addCreditsButton;
+    private javax.swing.JLabel availableCreditLabel;
+    private javax.swing.JTextField availableCreditsTextField;
     private javax.swing.JTextField creditTextField;
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JList<String> guestListView;
