@@ -10,7 +10,9 @@ import wlvp.WLVP;
 public class AccountController {
     private static boolean initialized;
     private static int nextUserId = 0;
+    private static AbstractUser user;
     private static AccountCreationView accountCreationView;
+    private static AccountManagerView accountManagementView;
     
     
     /**
@@ -104,10 +106,12 @@ public class AccountController {
         if (type == null) {
             Guest guest = new Guest(nextUserId, email, password);
             nextUserId++;
+            user = guest;
             return guest;
         } else {
             Employee employee = new Employee(nextUserId, email, password, type);
             nextUserId++;
+            user = employee;
             return employee;
         }
     }
@@ -118,6 +122,14 @@ public class AccountController {
      */
     public static void navigateToAccountCreation() {
         accountCreationView.setVisible(true);
+    }
+    
+    
+    /**
+     * Navigates to the account management interface
+     */
+    public static void navigateToAccountManagement() {
+        accountManagementView.setVisible(true);
     }
     
     
@@ -135,6 +147,22 @@ public class AccountController {
      * Signs the user out and returns to the landing page
      */
     public static void logout() {
-        
+        navigateToAccountCreation();
+    }
+    
+    
+    /**
+     * @param newEmail The new email
+     */
+    public static void changeEmail(String newEmail) {
+        user.email = newEmail;
+    }
+    
+    
+    /**
+     * @param newPassword The new password
+     */
+    public static void changePassword(String newPassword) {
+        user.password = newPassword;
     }
 }
