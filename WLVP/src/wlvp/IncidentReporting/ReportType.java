@@ -6,6 +6,6 @@ package wlvp.IncidentReporting;
  */
 public enum ReportType {
     Incident,
-    Review,
+    Feedback,
     Update
 }
