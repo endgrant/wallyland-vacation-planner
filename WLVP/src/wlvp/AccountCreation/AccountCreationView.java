@@ -39,7 +39,7 @@ public class AccountCreationView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel1.setText("Account Login");
 
-        jTextField1.setText("Enter Username");
+        jTextField1.setText("Enter Email ID");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel2.setText("Password");
