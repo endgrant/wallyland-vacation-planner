@@ -8,8 +8,23 @@ import wlvp.WLVP;
  * @author Grant
  */
 public class AccountController {
+    private static boolean initialized;
     private static int nextUserId = 0;
     private static AccountCreationView accountCreationView;
+    
+    
+    /**
+     * Initializes the account controller
+     */
+    public static void initialize() {
+        assert(!initialized);
+        
+        initialized = true;
+        accountCreationView = new AccountCreationView();
+        accountCreationView.setSize(600, 600);
+        
+        initialized = true;
+    }
     
     
     /**
