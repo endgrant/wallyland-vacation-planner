@@ -13,29 +13,42 @@ public class AccountController {
     
     
     /**
-     * Checks if the given username is valid
-     * @param username
-     * @return Returns true if the username is valid
+     * Checks if the given email is valid
+     * @param email
+     * @return Returns true if the email is valid
      */
-    public static boolean isUsernameValid(String username) {
-        if (!username.matches("[a-zA-Z0-9_]+")) { // RegEx for alphanumeric and underscores
+    public static boolean isEmailValid(String email) {
+        if (!email.matches("[a-zA-Z0-9_@]+")) { // RegEx for alphanumeric, underscores and at sign
             return false;
         }
         
         // Disallow usernames longer than 16 characters
-        if (username.length() > 16) {
+        if (email.length() > 16) {
             return false;
         }
         
         // Check if there are at least 3 alphanumeric characters
         int count = 0;
-        for (char c : username.toCharArray()) {
+        for (char c : email.toCharArray()) {
             if (Character.isLetterOrDigit(c)) {
                 count++;
             }
         }
         
-        return count >= 3;
+        // Check if there is exactly one at symbol
+        boolean exactlyOne = false;
+        for (char c : email.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                if (exactlyOne) {
+                    exactlyOne = false;
+                    break;
+                } else {
+                    exactlyOne = true;
+                }
+            }
+        }
+        
+        return count >= 3 && exactlyOne;
     }
     
     
@@ -67,19 +80,18 @@ public class AccountController {
     
     
     /**
-     * @param username
      * @param email
      * @param password
      * @param type EmployeeType; Leave null when creating a guest user
      * @return The newly created user object
      */
-    public static AbstractUser createUser(String username, String email, String password, EmployeeType type) {
+    public static AbstractUser createUser(String email, String password, EmployeeType type) {
         if (type == null) {
-            Guest guest = new Guest(nextUserId, username, email, password);
+            Guest guest = new Guest(nextUserId, email, password);
             nextUserId++;
             return guest;
         } else {
-            Employee employee = new Employee(nextUserId, username, email, password, type);
+            Employee employee = new Employee(nextUserId, email, password, type);
             nextUserId++;
             return employee;
         }
