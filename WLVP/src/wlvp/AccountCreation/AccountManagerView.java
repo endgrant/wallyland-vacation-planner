@@ -38,27 +38,12 @@ public class AccountManagerView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         emailTextField.setText("New Email");
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
-            }
-        });
 
         emailButton.setText("Change email");
 
         passwordTextField.setText("New Password");
-        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordTextFieldActionPerformed(evt);
-            }
-        });
 
         passwordButton.setText("Change password");
-        passwordButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordButtonActionPerformed(evt);
-            }
-        });
 
         accManagerLabel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         accManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -117,18 +102,6 @@ public class AccountManagerView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextFieldActionPerformed
-
-    private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordTextFieldActionPerformed
-
-    private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
