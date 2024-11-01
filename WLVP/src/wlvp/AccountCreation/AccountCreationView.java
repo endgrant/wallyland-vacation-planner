@@ -123,8 +123,6 @@ public class AccountCreationView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-<<<<<<< Updated upstream
     /**
      * @param args the command line arguments
      */
@@ -159,44 +157,21 @@ public class AccountCreationView extends javax.swing.JFrame {
             }
         });
     }
-=======
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        String email = jTextField1.getText();
-    if (AccountController.isEmailValid(email)) {
-        JOptionPane.showMessageDialog(this, "Email is valid.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid email format. Please try again.");
-    }
+
     }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-      String password = jTextField3.getText();
-    if (AccountController.isPasswordValid(password)) {
-        JOptionPane.showMessageDialog(this, "Password is valid.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid password. Password must be 8-24 characters and contain at least 3 alphanumeric characters.");
-    }
+     
     }//GEN-LAST:event_jTextField3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String email = jTextField1.getText();
-    String password = jTextField3.getText();
-
-    // Validate email and password before creating the user
-    if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
-        AccountController.createUser(email, password, null); // Assuming this is a guest user (type null)
-        JOptionPane.showMessageDialog(this, "Account created successfully!");
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
-    }
+     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       AccountController.shareInvite();
-    JOptionPane.showMessageDialog(this, "Invite sent successfully!");
+     
     }//GEN-LAST:event_jButton2ActionPerformed
 
->>>>>>> Stashed changes
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
