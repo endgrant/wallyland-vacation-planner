@@ -165,4 +165,9 @@ public class AccountController {
     public static void changePassword(String newPassword) {
         user.password = newPassword;
     }
+    
+    
+    public static void shareInvite() {
+        
+    }
 }
