@@ -4,25 +4,23 @@
  */
 package wlvp.ParkPass;
 
-import java.util.ArrayList;
-import wlvp.AccountCreation.Guest;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Daniel
  */
-public class ParkPassView extends javax.swing.JFrame {
-    private ParkPassController parkPassController;
-    private ArrayList<Guest> guestList;
-    private ParkPass parkPass;
+public class ParkPassView extends javax.swing.JFrame implements ActionListener {
+    private static ParkPassController parkPassController;
     /**
      * Creates new form ParkPassView
      */
-    public ParkPassView(ParkPassController parkPassController) {
-        this.parkPassController = parkPassController;
+    public ParkPassView() {
+        
         initComponents();
-        this.parkPass = parkPassController.getParkPass();
-        parsePass(parkPass);
+        parsePass(parkPassController.getParkPass());
+        
         
     }
     public void parsePass(ParkPass parkPass){
@@ -30,6 +28,22 @@ public class ParkPassView extends javax.swing.JFrame {
         availableCreditsTextField.setText(parkPass.getCredits()+ "");
         
         
+    }
+      public void AddActionListeners(){
+        addCreditsButton.addActionListener(this);
+        
+        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object obj = e.getSource();
+        
+        if(obj == addCreditsButton){
+            int amount = Integer.parseInt(creditTextField.getText());
+            parkPassController.addCredits(amount);
+            
+        }
     }
 
     /**

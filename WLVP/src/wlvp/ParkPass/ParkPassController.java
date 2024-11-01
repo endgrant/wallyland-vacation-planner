@@ -11,12 +11,14 @@ import java.awt.event.ActionListener;
  *
  * @author Daniel
  */
-public class ParkPassController implements ActionListener {
+public class ParkPassController {
     private static ParkPassView parkPassView;
     private static ParkPass parkPass;
     
     
     public static void goToParkPassView(){
+        parkPassView = new ParkPassView();
+        parkPassView.setSize(600, 600);
         parkPassView.setVisible(true);
     }
     
@@ -26,7 +28,9 @@ public class ParkPassController implements ActionListener {
         return newParkPass;
         
     }
-    public static void addCredits(){
+    public static void addCredits(int amount){
+        parkPass.purchaseCredits(amount);
+        parkPassView.parsePass(parkPass);
        
         
     }
@@ -36,18 +40,9 @@ public class ParkPassController implements ActionListener {
         return parkPass;
     }
     
-    public void AddActionListeners(){
-        parkPassView.addCreditsButton.addActionListener(this);
+  
         
-        
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object obj = e.getSource();
-        
-        
-    }
+    
     
   
 }

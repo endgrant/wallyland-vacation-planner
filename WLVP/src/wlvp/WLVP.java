@@ -1,6 +1,8 @@
 package wlvp;
 
+
 import wlvp.AccountCreation.AccountController;
+import wlvp.ParkPass.ParkPassController;
 
 /**
  * @author Grant
@@ -13,6 +15,8 @@ public class WLVP {
         // Initialize controllers
         AccountController.initialize();
         
-        AccountController.navigateToAccountCreation();        
+        AccountController.navigateToAccountCreation();
+
+
     }
 }
