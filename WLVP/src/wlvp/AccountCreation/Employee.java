@@ -13,27 +13,33 @@ public class Employee extends AbstractUser {
     /**
      * The EmployeeType of this employee
      */
-    private EmployeeType type;
+    private final EmployeeType type;
     
     
     /**
      * Default constructor
      * @param id
-     * @param username
      * @param email
      * @param password
      * @param type The EmployeeType of this employee
      */
-    public Employee(int id, String username, String email, String password, EmployeeType type) {
+    public Employee(int id, String email, String password, EmployeeType type) {
         this.ID = id;
-        this.username = username;
         this.email = email;
         this.password = password;
         this.type = type;
     }
     
   
-     public List <Report> viewReports() {
+    /**
+     * @return The type of this employee
+     */
+    public EmployeeType getType() {
+        return type;
+    }
+    
+    
+    public List <Report> viewReports() {
          return getAllReports(); 
     }
 

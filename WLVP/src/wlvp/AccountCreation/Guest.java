@@ -19,16 +19,15 @@ public class Guest extends AbstractUser {
     /**
      * Default constructor
      * @param id
-     * @param username
      * @param email
      * @param password
      */
-    public Guest(int id, String username, String email, String password) {
+    public Guest(int id, String email, String password) {
         this.ID = id;
-        this.username = username;
         this.email = email;
         this.password = password;
     }
+    
     
      public void setParkPass(ParkPass pass) {
         this.pass = pass;
