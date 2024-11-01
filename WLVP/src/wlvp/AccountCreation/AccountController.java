@@ -55,7 +55,7 @@ public class AccountController {
         // Check if there is exactly one at symbol
         boolean exactlyOne = false;
         for (char c : email.toCharArray()) {
-            if (Character.isLetterOrDigit(c)) {
+            if (c == '@') {
                 if (exactlyOne) {
                     exactlyOne = false;
                     break;
