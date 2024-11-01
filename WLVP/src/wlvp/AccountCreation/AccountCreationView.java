@@ -143,7 +143,7 @@ public class AccountCreationView extends javax.swing.JFrame {
     // Validate email and password before creating the user
     if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
         AccountController.createUser(email, password, null); // Assuming this is a guest user (type null)
-        AccountController.navigateToAccountManagment();
+        AccountController.navigateToAccountManagement();
     } else {
         JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
     }
