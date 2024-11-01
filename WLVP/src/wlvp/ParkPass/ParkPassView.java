@@ -19,6 +19,7 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
     public ParkPassView() {
         
         initComponents();
+        
         parsePass(parkPassController.getParkPass());
         
         
