@@ -24,6 +24,8 @@ public class AccountController {
         initialized = true;
         accountCreationView = new AccountCreationView();
         accountCreationView.setSize(600, 600);
+        accountManagementView = new AccountManagerView();
+        accountManagementView.setSize(600, 600);
         
         initialized = true;
     }
