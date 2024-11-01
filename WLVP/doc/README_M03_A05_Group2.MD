@@ -11,9 +11,12 @@ their park pass which will serve as their entrance cost to any of the theme park
 attraction. We however, did not antipate the need for an account managment screen.
 An account managment screen was nesscary to guide the user to screen after they 
 have either logged in or created a new account. Although this puts us behind our
-intended schedule, we still feel the time we have spent ironing out some of these details
-and getting used to coding as a team will eventually lead us to work faster in the future
-now that things like source control and name conventions have been established.
+intended schedule,most of the logic for ParkPass has been written. We don't expect
+to be behind given that we have got the chance to work out coding as a team will
+should help us work faster in the future now that things like source control and
+ naming conventions have been established.
+
+
 
 
 
