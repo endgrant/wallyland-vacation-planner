@@ -20,7 +20,7 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
         
         initComponents();
         
-        parsePass(parkPassController.getParkPass());
+       
         
         
     }
@@ -105,6 +105,8 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
         jScrollPane1.setViewportView(guestListView);
 
         parkPassPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 153, 288, 228));
+
+        availableCreditsTextField.setEditable(false);
         parkPassPanel.add(availableCreditsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 100, -1));
 
         availableCreditLabel.setText("Credits Available");
