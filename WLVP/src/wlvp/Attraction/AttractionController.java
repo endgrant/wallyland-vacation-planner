@@ -4,6 +4,9 @@
  */
 package wlvp.Attraction;
 
+import java.util.ArrayList;
+import wlvp.AccountCreation.Guest;
+
 /**
  *
  * @author Daniel
@@ -11,7 +14,18 @@ package wlvp.Attraction;
 public class AttractionController {
     public static AttractionView attractionView;
     public static AbstractAttraction attraction;
+    public static ArrayList<AbstractAttraction> attractionList;
     
     
+    
+    
+   public void populateListView(ArrayList<AbstractAttraction> listOfAttractions){
+       
+       
+       for(int i = 0; i < listOfAttractions.size(); i++){
+           attractionView.getRestaurantListModel().addElement(listOfAttractions.get(i));
           
+       }
+       
+   }       
 }

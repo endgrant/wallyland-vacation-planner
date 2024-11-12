@@ -4,19 +4,36 @@
  */
 package wlvp.Attraction;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
 /**
  *
  * @author Daniel
  */
 public class AttractionView extends javax.swing.JFrame {
-
+    private static DefaultListModel model;
     /**
      * Creates new form AttractionVIew
      */
+    
     public AttractionView() {
         initComponents();
+        restaurantList = new JList(model);
+        
     }
-
+    public JList<String> getRestaurantListViewComp(){
+        return restaurantList;
+    }
+    public DefaultListModel getRestaurantListModel(){
+        return model;
+    }
+    
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
