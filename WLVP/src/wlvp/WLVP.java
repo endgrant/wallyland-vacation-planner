@@ -17,6 +17,6 @@ public class WLVP {
         
         AccountController.navigateToAccountCreation();
 
-
+        
     }
 }
