@@ -118,7 +118,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="viewUserList">
+        <Component class="javax.swing.JButton" name="logoutButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Refresh"/>
           </Properties>
