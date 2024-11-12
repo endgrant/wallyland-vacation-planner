@@ -7,7 +7,7 @@ package wlvp.Attraction;
 /**
  * Enumerator representing different types of restaurants in the theme park.
  */
-public enum RestaurantType {
+public enum RestaurantType  {
     /** Full-service restaurant where guests are served at tables */
     SitDown,
     

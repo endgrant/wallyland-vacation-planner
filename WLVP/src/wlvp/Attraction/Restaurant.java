@@ -14,27 +14,35 @@ public class Restaurant extends AbstractAttraction {
     private RestaurantType restaurantType;
 
     /**
-     * Returns the type of the restaurant.
-     * @return RestaurantType representing the type of the restaurant (e.g., Sit-down, Quick Service)
+     * Creates a new Restaurant attraction.
+     * @param ID Unique identifier for the restaurant
+     * @param attractionStatus Initial status of the restaurant (true for active, false for closed)
+     * @param name Name of the restaurant
+     * @param restaurantType Type of the restaurant (defined by RestaurantType enumerator)
      */
+    public Restaurant(int ID, boolean attractionStatus, String name, RestaurantType restaurantType) {
+        super(ID, attractionStatus, name);
+        this.restaurantType = restaurantType;
+    }
+
     public RestaurantType getRestaurantType() {
         return restaurantType;
     }
 
-    /**
-     * Creates a new Restaurant attraction.
-     * @param ID Unique identifier for the restaurant
-     * @param attractionStatus Initial status of the restaurant (true for active, false for closed)
-     * @param restaurantType Type of the restaurant (defined by RestaurantType enumerator)
-     */
-    public Restaurant(int ID, boolean attractionStatus, RestaurantType restaurantType) {
-        super(ID, attractionStatus);
-        this.restaurantType = restaurantType;
-    }
+    @Override
+    public int calculateWaitTime() {
+        int baseWaitTime = 10;
+        int waitTime;
 
-    private static class RestaurantType {
-
-        public RestaurantType() {
+        if (restaurantType == RestaurantType.SitDown) {
+            waitTime = baseWaitTime * 3;
+        } else if (restaurantType == RestaurantType.Casual) {
+            waitTime = baseWaitTime * 2;
+        } else {
+            waitTime = baseWaitTime;
         }
+        
+        updateLastUpdatedTime(); // Call the protected method from AbstractAttraction
+        return waitTime;
     }
 }
