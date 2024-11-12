@@ -1,7 +1,5 @@
 package wlvp.Itinerary;
 
-
-import wlvp.Attraction.AbstractAttraction;
 import java.util.ArrayList;
 
 
@@ -30,12 +28,12 @@ public class Itinerary {
     }
     
     
-    // MODIFY TO USE AN EventSlot OBJECT INSTEAD
     /**
-     *  Adds an event to a users Itinerary with a given attraction and the amount of guests attending.
+     * Adds an event to the itinerary
+     * @param event The EventSlot to append to the itinerary
      */
-    public void addEvent(AbstractAttraction attraction,int guestCount){
-   
+    public void addEvent(EventSlot event){
+        events.add(event);
     }
     
     
@@ -44,7 +42,7 @@ public class Itinerary {
      * @param event
      */
     public void removeEvent(EventSlot event){
-        
+        events.remove(event);
     }
    
     
