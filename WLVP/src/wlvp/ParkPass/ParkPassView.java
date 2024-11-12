@@ -63,7 +63,7 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
         addCreditsButton = new javax.swing.JButton();
         toItineraryButton = new javax.swing.JButton();
         toAccountButton = new javax.swing.JButton();
-        viewUserList = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         guestListView = new javax.swing.JList<>();
         availableCreditsTextField = new javax.swing.JTextField();
@@ -94,8 +94,8 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
         toAccountButton.setText("Account");
         parkPassPanel.add(toAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 6, -1, -1));
 
-        viewUserList.setText("Refresh");
-        parkPassPanel.add(viewUserList, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 387, -1, -1));
+        logoutButton.setText("Refresh");
+        parkPassPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 387, -1, -1));
 
         guestListView.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -145,10 +145,10 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JList<String> guestListView;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton logoutButton;
     private javax.swing.JLabel parkPassLabel;
     private javax.swing.JPanel parkPassPanel;
     public javax.swing.JButton toAccountButton;
     private javax.swing.JButton toItineraryButton;
-    public javax.swing.JButton viewUserList;
     // End of variables declaration//GEN-END:variables
 }
