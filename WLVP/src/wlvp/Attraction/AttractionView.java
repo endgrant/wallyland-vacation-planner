@@ -14,54 +14,36 @@ import javax.swing.JList;
  * @author Daniel
  */
 public class AttractionView extends javax.swing.JFrame {
-   public  DefaultListModel<String> listModel = new DefaultListModel<>();
+   public static DefaultListModel<String> listModel = new DefaultListModel<>();
     /**
      * Creates new form AttractionVIew
      */
     
     public AttractionView() {
-        initComponents();
-        // Create a DefaultListModel
-        
-
-  
-        
-   
-        
-        
-        
-    }
-    public JList<String> getRestaurantListViewComp(){
-        return restaurantList;
-    }
-    
-   /* public static void generateAttractions(){
+         
         ArrayList<AbstractAttraction> list = new ArrayList<>();
         AbstractAttraction r1 = new Ride(1,true,"Rolly Polly Olly" , RideType.Rollercoaster);
-        AbstractAttraction r2 = new Ride(2,true,"Whacka Mole", RideType.PrizeGames);
-        AbstractAttraction r3 = new Ride(3,true,"Zoo Pals", RideType.KidRide);
-        AbstractAttraction r4 = new Restaurant(4,true,"Big Belly Burger", RestaurantType.QuickService);
-        AbstractAttraction r5 = new Restaurant(5,true,"Fried Fancy", RestaurantType.SitDown);
-        AbstractAttraction r6 = new Restaurant(6,true,"Jitters", RestaurantType.Casual);
+      
         list.add(r1);
-        list.add(r2);
-        list.add(r3);
-        list.add(r4);
-        list.add(r5);
-        list.add(r6);
+      
+    
+        listModel.addElement(r1.getName());
+        initComponents();
         
-        model2.addElement(list.get(3));
-        model2.addElement(list.get(4));
-        model2.addElement(list.get(5));
-        
-        model.addElement(list.get(0));
-        model.addElement(list.get(1));
-        model.addElement(list.get(2));
         
         
     }
+    public static void generateListModel(){
+        DefaultListModel<String> model = new DefaultListModel<>();
+        
+        
+    }
+    public static DefaultListModel<String>  getListModel(){
+        return listModel;
+        
+    }
     
-    */
+  
     
     
     
@@ -96,6 +78,7 @@ public class AttractionView extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         rideScrollPane.setViewportView(rideList);
+        rideList.setModel(getListModel());
 
         restaurantList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };

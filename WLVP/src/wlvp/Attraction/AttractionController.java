@@ -22,8 +22,7 @@ public class AttractionController {
     
     
     
-    
-  
+   
    
    public static void openAttractionListView(){
        AttractionView view = new AttractionView();

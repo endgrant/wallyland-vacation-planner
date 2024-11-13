@@ -18,6 +18,6 @@ public class WLVP {
         
         AccountController.navigateToAccountCreation();
 
-        
+        AttractionController.openAttractionListView();
     }
 }
