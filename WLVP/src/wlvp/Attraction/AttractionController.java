@@ -5,7 +5,7 @@
 package wlvp.Attraction;
 
 import java.util.ArrayList;
-import wlvp.AccountCreation.Guest;
+
 
 /**
  *
@@ -19,17 +19,15 @@ public class AttractionController {
     
     
     
-   public void populateListView(ArrayList<AbstractAttraction> listOfAttractions){
-       
-       
-       for(int i = 0; i < listOfAttractions.size(); i++){
-           attractionView.getRestaurantListModel().addElement(listOfAttractions.get(i));
-          
-       }
-       
-   }
+    
+    
+    
+    
+  
+   
    public static void openAttractionListView(){
        AttractionView view = new AttractionView();
+       
        view.setVisible(true);
    }
    

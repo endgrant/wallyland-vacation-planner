@@ -2,6 +2,7 @@ package wlvp;
 
 
 import wlvp.AccountCreation.AccountController;
+import wlvp.Attraction.AttractionController;
 import wlvp.ParkPass.ParkPassController;
 
 /**

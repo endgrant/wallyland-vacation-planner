@@ -4,33 +4,64 @@
  */
 package wlvp.Attraction;
 
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+
 
 /**
  *
  * @author Daniel
  */
 public class AttractionView extends javax.swing.JFrame {
-    private static DefaultListModel model;
+    
     /**
      * Creates new form AttractionVIew
      */
     
     public AttractionView() {
         initComponents();
-        restaurantList = new JList(model);
+        // Create a DefaultListModel
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+
+  
+        
+   
+        
+        
         
     }
     public JList<String> getRestaurantListViewComp(){
         return restaurantList;
     }
-    public DefaultListModel getRestaurantListModel(){
-        return model;
+    
+   /* public static void generateAttractions(){
+        ArrayList<AbstractAttraction> list = new ArrayList<>();
+        AbstractAttraction r1 = new Ride(1,true,"Rolly Polly Olly" , RideType.Rollercoaster);
+        AbstractAttraction r2 = new Ride(2,true,"Whacka Mole", RideType.PrizeGames);
+        AbstractAttraction r3 = new Ride(3,true,"Zoo Pals", RideType.KidRide);
+        AbstractAttraction r4 = new Restaurant(4,true,"Big Belly Burger", RestaurantType.QuickService);
+        AbstractAttraction r5 = new Restaurant(5,true,"Fried Fancy", RestaurantType.SitDown);
+        AbstractAttraction r6 = new Restaurant(6,true,"Jitters", RestaurantType.Casual);
+        list.add(r1);
+        list.add(r2);
+        list.add(r3);
+        list.add(r4);
+        list.add(r5);
+        list.add(r6);
+        
+        model2.addElement(list.get(3));
+        model2.addElement(list.get(4));
+        model2.addElement(list.get(5));
+        
+        model.addElement(list.get(0));
+        model.addElement(list.get(1));
+        model.addElement(list.get(2));
+        
+        
     }
     
-    
-    
+    */
     
     
     
@@ -149,10 +180,10 @@ public class AttractionView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel attractionLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JList<String> restaurantList;
+    public javax.swing.JList<String> restaurantList;
     private javax.swing.JLabel restaurantListLabel;
     private javax.swing.JScrollPane restaurantScrollPane;
-    private javax.swing.JList<String> rideList;
+    public javax.swing.JList<String> rideList;
     private javax.swing.JLabel rideListLabel;
     private javax.swing.JScrollPane rideScrollPane;
     public javax.swing.JButton showDetailsButton;
