@@ -14,7 +14,7 @@ import javax.swing.JList;
  * @author Daniel
  */
 public class AttractionView extends javax.swing.JFrame {
-    
+   public  DefaultListModel<String> listModel = new DefaultListModel<>();
     /**
      * Creates new form AttractionVIew
      */
@@ -22,7 +22,7 @@ public class AttractionView extends javax.swing.JFrame {
     public AttractionView() {
         initComponents();
         // Create a DefaultListModel
-        DefaultListModel<String> listModel = new DefaultListModel<>();
+        
 
   
         
