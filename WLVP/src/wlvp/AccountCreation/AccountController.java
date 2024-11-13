@@ -2,6 +2,7 @@ package wlvp.AccountCreation;
 
 import wlvp.IncidentReporting.Report;
 import wlvp.IncidentReporting.ReportType;
+import wlvp.ParkPass.ParkPassController;
 import wlvp.WLVP;
 
 /**
@@ -20,14 +21,12 @@ public class AccountController {
      */
     public static void initialize() {
         assert(!initialized);
-        
         initialized = true;
+        
         accountCreationView = new AccountCreationView();
         accountCreationView.setSize(600, 600);
         accountManagementView = new AccountManagerView();
         accountManagementView.setSize(600, 600);
-        
-        initialized = true;
     }
     
     
@@ -101,21 +100,29 @@ public class AccountController {
     /**
      * @param email
      * @param password
-     * @param type EmployeeType; Leave null when creating a guest user
-     * @return The newly created user object
+     * @return The newly created guest object
      */
-    public static AbstractUser createUser(String email, String password, EmployeeType type) {
-        if (type == null) {
-            Guest guest = new Guest(nextUserId, email, password);
-            nextUserId++;
-            user = guest;
-            return guest;
-        } else {
-            Employee employee = new Employee(nextUserId, email, password, type);
-            nextUserId++;
-            user = employee;
-            return employee;
-        }
+    public static Guest createGuest(String email, String password) {
+        Guest guest = new Guest(nextUserId, email, password);
+        nextUserId++;
+        user = guest;
+        
+        return guest;
+    }
+    
+    
+    /**
+     * @param email
+     * @param password
+     * @param type The type of the employee
+     * @return The newly created employee object
+     */
+    public static Employee createEmployee(String email, String password, EmployeeType type) {
+        Employee employee = new Employee(nextUserId, email, password, type);
+        nextUserId++;
+        user = employee;
+        
+        return employee;
     }
     
     

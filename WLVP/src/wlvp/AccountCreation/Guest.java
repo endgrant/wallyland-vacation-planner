@@ -38,5 +38,11 @@ public class Guest extends AbstractUser {
      */
     public ParkPass getParkPass() {
         return pass;
-    }  
+    }
+    
+    
+    @Override
+    public String toString() {
+        return this.email + "       " + Integer.toString(this.ID);
+    }
 }

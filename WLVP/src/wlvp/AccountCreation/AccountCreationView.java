@@ -1,6 +1,7 @@
 package wlvp.AccountCreation;
 
 import javax.swing.JOptionPane;
+import wlvp.ParkPass.ParkPassController;
 
 /**
  *
@@ -137,16 +138,16 @@ public class AccountCreationView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      String email = jTextField1.getText();
-    String password = jTextField3.getText();
+        String email = jTextField1.getText();
+        String password = jTextField3.getText();
 
-    // Validate email and password before creating the user
-    if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
-        AccountController.createUser(email, password, null); // Assuming this is a guest user (type null)
-        AccountController.navigateToAccountManagement();
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
-    }
+        // Validate email and password before creating the user
+        if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
+            AccountController.createGuest(email, password); // Assuming this is a guest user (type null)
+            ParkPassController.navigateToParkPass();
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
