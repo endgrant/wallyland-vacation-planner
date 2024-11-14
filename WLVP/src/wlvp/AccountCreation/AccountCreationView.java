@@ -29,7 +29,7 @@ public class AccountCreationView extends javax.swing.JFrame {
         emailTextField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JTextField();
-        createNewAcctButton = new javax.swing.JButton();
+        createAccountButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
@@ -56,10 +56,10 @@ public class AccountCreationView extends javax.swing.JFrame {
             }
         });
 
-        createNewAcctButton.setText("Create New");
-        createNewAcctButton.addActionListener(new java.awt.event.ActionListener() {
+        createAccountButton.setText("Create New");
+        createAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createNewAcctButtonActionPerformed(evt);
+                createAccountButtonActionPerformed(evt);
             }
         });
 
@@ -81,7 +81,7 @@ public class AccountCreationView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(createNewAcctButton)
+                .addComponent(createAccountButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logoutButton)
                 .addGap(11, 11, 11))
@@ -119,7 +119,7 @@ public class AccountCreationView extends javax.swing.JFrame {
                 .addComponent(loginButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createNewAcctButton)
+                    .addComponent(createAccountButton)
                     .addComponent(logoutButton))
                 .addGap(35, 35, 35))
         );
@@ -145,10 +145,10 @@ public class AccountCreationView extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_passwordTextFieldActionPerformed
 
-<<<<<<< HEAD
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String email = jTextField1.getText();
-        String password = jTextField3.getText();
+
+    private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
+        String email = emailTextField.getText();
+        String password = passwordTextField.getText();
 
         // Validate email and password before creating the user
         if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
@@ -157,32 +157,19 @@ public class AccountCreationView extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-=======
-    private void createNewAcctButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewAcctButtonActionPerformed
-      String email = emailTextField.getText();
-    String password = passwordTextField.getText();
+    }//GEN-LAST:event_createAccountButtonActionPerformed
 
-    // Validate email and password before creating the user
-    if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
-        AccountController.createUser(email, password, null); // Assuming this is a guest user (type null)
-        AccountController.navigateToAccountManagement();
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
-    }
-    }//GEN-LAST:event_createNewAcctButtonActionPerformed
->>>>>>> alan
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-     AccountController.logout();
-      navigateToAccountCreation();
-    JOptionPane.showMessageDialog(this, "You have logged out successfully.");
+        AccountController.logout();
+        AccountController.navigateToAccountCreation();
+        JOptionPane.showMessageDialog(this, "You have logged out successfully.");
     }//GEN-LAST:event_logoutButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accountLabel;
-    private javax.swing.JButton createNewAcctButton;
+    private javax.swing.JButton createAccountButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton logoutButton;
