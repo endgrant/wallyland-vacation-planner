@@ -66,4 +66,8 @@ public abstract class AbstractAttraction {
     protected void updateLastUpdatedTime() {
         this.lastUpdatedTime = LocalDateTime.now();
     }
+    @Override
+    public String toString(){
+        return this.name;
+    }
 }

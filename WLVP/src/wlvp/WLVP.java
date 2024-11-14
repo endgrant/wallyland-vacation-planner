@@ -2,6 +2,7 @@ package wlvp;
 
 
 import wlvp.AccountCreation.AccountController;
+import wlvp.Attraction.AttractionController;
 import wlvp.ParkPass.ParkPassController;
 
 /**
@@ -17,6 +18,6 @@ public class WLVP {
         
         AccountController.navigateToAccountCreation();
 
-        
+        AttractionController.openAttractionListView();
     }
 }
