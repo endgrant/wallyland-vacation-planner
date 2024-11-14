@@ -138,7 +138,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        ItineraryController.navigateToAttractionView();
+        AttractionController.openAttractionListView();
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
