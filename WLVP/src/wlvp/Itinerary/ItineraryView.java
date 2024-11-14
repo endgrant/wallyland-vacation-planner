@@ -6,6 +6,7 @@ package wlvp.Itinerary;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import wlvp.ParkPass.ParkPassController;
 
 /**
  *
@@ -141,7 +142,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        ItineraryController.navigateToParkPassView();
+        ParkPassController.navigateToParkPass();
     }//GEN-LAST:event_backButtonActionPerformed
 
     public void updateItineraryList(ArrayList<EventSlot> events) {
