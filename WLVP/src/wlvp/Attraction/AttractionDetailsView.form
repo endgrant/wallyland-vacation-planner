@@ -48,18 +48,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="detailsNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="detailTypeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="detailStatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="detailNameTextField" max="32767" attributes="0"/>
-                      <Component id="detailTypeTextField" max="32767" attributes="0"/>
-                      <Component id="detailStatusTextField" pref="200" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="backButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="125" max="32767" attributes="0"/>
+                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="detailsNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="detailTypeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="detailStatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="detailNameTextField" max="32767" attributes="0"/>
+                              <Component id="detailTypeTextField" max="32767" attributes="0"/>
+                              <Component id="detailStatusTextField" pref="200" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -81,7 +90,12 @@
                       <Component id="detailStatusLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="detailStatusTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="172" max="32767" attributes="0"/>
+                  <EmptySpace pref="108" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -115,6 +129,16 @@
         <Component class="javax.swing.JTextField" name="detailStatusTextField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="backButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Back"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add to Itinerary"/>
           </Properties>
         </Component>
       </SubComponents>

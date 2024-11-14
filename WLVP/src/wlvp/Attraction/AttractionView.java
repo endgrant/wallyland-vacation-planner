@@ -4,44 +4,45 @@
  */
 package wlvp.Attraction;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import static wlvp.Attraction.AttractionController.attractionList;
+import static wlvp.Attraction.AttractionController.attractionView;
+
 
 
 /**
  *
  * @author Daniel
  */
-public class AttractionView extends javax.swing.JFrame {
-   public static DefaultListModel<String> listModel = new DefaultListModel<>();
+public class AttractionView extends javax.swing.JFrame{
+   public static DefaultListModel<String> rideListModel = new DefaultListModel<>();
+   public static DefaultListModel<String> restaurantListModel = new DefaultListModel<>();
+   public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
     /**
      * Creates new form AttractionVIew
      */
     
     public AttractionView() {
-         
-        ArrayList<AbstractAttraction> list = new ArrayList<>();
-        AbstractAttraction r1 = new Ride(1,true,"Rolly Polly Olly" , RideType.Rollercoaster);
-      
-        list.add(r1);
-      
-    
-        listModel.addElement(r1.getName());
+        
+        updateListModels();
         initComponents();
-        
-        
+           
+    }
+    public static void updateListModels(){
+        rideListModel = AttractionController.getRideListModel();
+        restaurantListModel = AttractionController.getRestaurantListModel();
+        attractionList = AttractionController.attractionList;
+      
         
     }
-    public static void generateListModel(){
-        DefaultListModel<String> model = new DefaultListModel<>();
-        
-        
-    }
-    public static DefaultListModel<String>  getListModel(){
-        return listModel;
-        
-    }
+   
+    
+    
+    
     
   
     
@@ -78,7 +79,7 @@ public class AttractionView extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         rideScrollPane.setViewportView(rideList);
-        rideList.setModel(getListModel());
+        rideList.setModel(rideListModel);
 
         restaurantList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -86,6 +87,7 @@ public class AttractionView extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         restaurantScrollPane.setViewportView(restaurantList);
+        restaurantList.setModel(restaurantListModel);
 
         attractionLabel.setText("Attractions");
 
@@ -95,27 +97,27 @@ public class AttractionView extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(rideListLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(restaurantListLabel)
-                .addGap(75, 75, 75))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(rideScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(restaurantScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(attractionLabel)
+                .addGap(175, 175, 175))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(showDetailsButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(attractionLabel)
-                        .addGap(154, 154, 154))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(showDetailsButton)
-                        .addGap(131, 131, 131))))
+                    .addComponent(rideScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rideListLabel))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(restaurantListLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(restaurantScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                        .addGap(46, 46, 46))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,11 +130,11 @@ public class AttractionView extends javax.swing.JFrame {
                     .addComponent(restaurantListLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rideScrollPane)
+                    .addComponent(rideScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                     .addComponent(restaurantScrollPane))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(showDetailsButton)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,4 +173,6 @@ public class AttractionView extends javax.swing.JFrame {
     private javax.swing.JScrollPane rideScrollPane;
     public javax.swing.JButton showDetailsButton;
     // End of variables declaration//GEN-END:variables
+
+    
 }
