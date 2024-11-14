@@ -13,14 +13,13 @@ import javax.swing.DefaultListModel;
  */
 public class ItineraryView extends javax.swing.JFrame {
 
-    private DefaultListModel<EventSlot> listModel;
+    private DefaultListModel<EventSlot> listModel = new DefaultListModel();
 
     /**
      * Creates new form ItineraryView
      */
     public ItineraryView() {
         initComponents();
-        listModel = new DefaultListModel<>();
         itineraryList.setModel(listModel);
     }
 
