@@ -8,7 +8,7 @@ application to open the app, and make an account. Orginally, our plan to get ahe
 of schedule was to implement this and the functionality of what is named ParkPass.
 The idea behind a park pass is to allow guest to purchase and place credits on 
 their park pass which will serve as their entrance cost to any of the theme park
-attraction. We however, did not antipate the need for an account managment screen.
+attraction. We however, did not anticipate the need for an account managment screen.
 An account managment screen was nesscary to guide the user to screen after they 
 have either logged in or created a new account. Although this puts us behind our
 intended schedule,most of the logic for ParkPass has been written. We don't expect
