@@ -4,6 +4,7 @@ package wlvp;
 import wlvp.AccountCreation.AccountController;
 import wlvp.Attraction.AttractionController;
 import wlvp.AccountCreation.EmployeeType;
+import wlvp.Itinerary.ItineraryController;
 import wlvp.ParkPass.ParkPassController;
 
 /**
@@ -17,6 +18,7 @@ public class WLVP {
         // Initialize controllers
         AccountController.initialize();
         ParkPassController.initialize();
+        ItineraryController.initialize();
         
         AccountController.navigateToAccountCreation();
 
