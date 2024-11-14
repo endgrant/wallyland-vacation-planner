@@ -42,24 +42,6 @@ public class ItineraryController {
         itineraryView.updateItineraryList(events);
     }
 
-    /**
-     * Navigates to the Attraction view
-     */
-    public static void navigateToAttractionView() {
-        if (attractionView == null) {
-            attractionView = new AttractionView(); // Only create if not already initialized
-        }
-        attractionView.setVisible(true);
-    }
-    
-    /**
-     * Navigates to the AttractionDetails view
-     */
-    public static void navigateToAttractionDetailsView() {     
-        attractionDetailsView = new AttractionDetailsView(); 
-        attractionDetailsView.setVisible(true);
-    }
-    
     
     /**
      * Navigates to the Itinerary view
