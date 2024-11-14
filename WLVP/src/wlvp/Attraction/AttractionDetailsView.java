@@ -5,6 +5,8 @@
 
 package wlvp.Attraction;
 
+import wlvp.Itinerary.ItineraryController;
+
 /**
  *
  * @author Daniel
@@ -50,6 +52,11 @@ public class AttractionDetailsView extends javax.swing.JFrame {
         detailStatusTextField.setEditable(false);
 
         backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Add to Itinerary");
 
@@ -117,6 +124,11 @@ public class AttractionDetailsView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        AttractionController.detailListView.setVisible(false);
+        AttractionController.openAttractionListView();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
