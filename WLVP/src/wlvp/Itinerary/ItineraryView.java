@@ -142,7 +142,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
+        ItineraryController.navigateToParkPassView();
     }//GEN-LAST:event_backButtonActionPerformed
 
     public void updateItineraryList(ArrayList<EventSlot> events) {
