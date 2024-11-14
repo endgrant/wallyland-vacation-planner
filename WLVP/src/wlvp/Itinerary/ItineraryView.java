@@ -6,6 +6,7 @@ package wlvp.Itinerary;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import wlvp.Attraction.AttractionController;
 import wlvp.ParkPass.ParkPassController;
 
 /**
