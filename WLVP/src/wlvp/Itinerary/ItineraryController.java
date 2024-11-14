@@ -32,8 +32,6 @@ public class ItineraryController {
         
         itineraryView = new ItineraryView();
         itineraryView.setSize(600, 600);
-
-        initialized = true;
     }
 
     /**
@@ -61,13 +59,15 @@ public class ItineraryController {
         attractionDetailsView = new AttractionDetailsView(); 
         attractionDetailsView.setVisible(true);
     }
+    
+    
     /**
-     * Navigates to the ParkPass View
+     * Navigates to the Itinerary view
      */
-    public static void navigateToParkPassView() {     
-        parkPassView = new ParkPassView(); 
-        parkPassView.setVisible(true);
+    public static void navigateToItinerary() {
+        itineraryView.setVisible(true);
     }
+    
     /**
      * Removes EventSlot from Itinerary and updates view accordingly
      * @param eventToDelete
