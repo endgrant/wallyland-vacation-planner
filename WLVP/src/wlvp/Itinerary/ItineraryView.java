@@ -20,6 +20,8 @@ public class ItineraryView extends javax.swing.JFrame {
      */
     public ItineraryView() {
         initComponents();
+        listModel = new DefaultListModel<>();
+        itineraryList.setModel(listModel);
     }
 
     /**
@@ -128,8 +130,10 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_detailsButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        EventSlot eventToDelete = itineraryList.getSelectedValue();
-        ItineraryController.removeEvent(eventToDelete);
+     EventSlot eventToDelete = itineraryList.getSelectedValue();
+        if (eventToDelete != null) {
+            ItineraryController.removeEvent(eventToDelete);
+        }
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
