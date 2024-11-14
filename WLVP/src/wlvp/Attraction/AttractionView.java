@@ -19,8 +19,8 @@ import static wlvp.Attraction.AttractionController.attractionView;
  * @author Daniel
  */
 public class AttractionView extends javax.swing.JFrame{
-   public static DefaultListModel<String> rideListModel = new DefaultListModel<>();
-   public static DefaultListModel<String> restaurantListModel = new DefaultListModel<>();
+   public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
+   public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
    public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
     /**
      * Creates new form AttractionVIew
@@ -73,18 +73,18 @@ public class AttractionView extends javax.swing.JFrame{
 
         restaurantListLabel.setText("Restaurants");
 
-        rideList.setModel(new javax.swing.AbstractListModel<String>() {
+        rideList.setModel(new javax.swing.AbstractListModel<AbstractAttraction>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         rideScrollPane.setViewportView(rideList);
         rideList.setModel(rideListModel);
 
-        restaurantList.setModel(new javax.swing.AbstractListModel<String>() {
+        restaurantList.setModel(new javax.swing.AbstractListModel<AbstractAttraction>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         restaurantScrollPane.setViewportView(restaurantList);
         restaurantList.setModel(restaurantListModel);
@@ -165,10 +165,10 @@ public class AttractionView extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel attractionLabel;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JList<String> restaurantList;
+    public javax.swing.JList<AbstractAttraction> restaurantList;
     private javax.swing.JLabel restaurantListLabel;
     private javax.swing.JScrollPane restaurantScrollPane;
-    public javax.swing.JList<String> rideList;
+    private javax.swing.JList<AbstractAttraction> rideList;
     private javax.swing.JLabel rideListLabel;
     private javax.swing.JScrollPane rideScrollPane;
     public javax.swing.JButton showDetailsButton;

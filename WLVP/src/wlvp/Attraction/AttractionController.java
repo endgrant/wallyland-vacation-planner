@@ -17,8 +17,8 @@ public class AttractionController {
     public static AttractionView attractionView;
     public static AbstractAttraction attraction;
     public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
-    public static DefaultListModel<String> rideListModel = new DefaultListModel<>();
-   public static DefaultListModel<String> restaurantListModel = new DefaultListModel<>();
+    public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
+   public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
     
 
    public static void openAttractionListView(){
@@ -56,21 +56,21 @@ public class AttractionController {
    public static void populateListModels(){
        for(int i = 0; i < attractionList.size(); i++){
            if(attractionList.get(i).getClass().isAssignableFrom(Restaurant.class) ){
-               restaurantListModel.addElement(attractionList.get(i).getName());
+               restaurantListModel.addElement(attractionList.get(i));
                
                
            }
            else{
-               rideListModel.addElement(attractionList.get(i).getName());
+               rideListModel.addElement(attractionList.get(i));
            }
        }
    }
-    public static DefaultListModel<String> getRideListModel(){
+    public static DefaultListModel<AbstractAttraction> getRideListModel(){
         return rideListModel;
        
         
    }
-   public static DefaultListModel<String> getRestaurantListModel(){
+   public static DefaultListModel<AbstractAttraction> getRestaurantListModel(){
        return restaurantListModel;
    }
    
