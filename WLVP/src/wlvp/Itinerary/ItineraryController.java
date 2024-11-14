@@ -61,7 +61,13 @@ public class ItineraryController {
         attractionDetailsView = new AttractionDetailsView(); 
         attractionDetailsView.setVisible(true);
     }
-    
+    /**
+     * Navigates to the ParkPass View
+     */
+    public static void navigateToParkPassView() {     
+        parkPassView = new ParkPassView(); 
+        parkPassView.setVisible(true);
+    }
     /**
      * Removes EventSlot from Itinerary and updates view accordingly
      * @param eventToDelete
