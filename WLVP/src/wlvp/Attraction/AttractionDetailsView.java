@@ -127,7 +127,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.setVisible(false);
-        AttractionController.openAttractionListView();
+        ItineraryController.navigateToItinerary();
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
