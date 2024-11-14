@@ -28,11 +28,11 @@ public class ItineraryView extends javax.swing.JFrame {
 
         ItineraryLabel = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        currentIntineraryLabel = new javax.swing.JLabel();
         detailsButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        itineraryList = new javax.swing.JList<>();
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,7 +48,7 @@ public class ItineraryView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Current Itinerary");
+        currentIntineraryLabel.setText("Current Itinerary");
 
         detailsButton.setText("View Details");
         detailsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,12 +64,12 @@ public class ItineraryView extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        itineraryList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(itineraryList);
 
         backButton.setText("Back");
 
@@ -82,7 +82,7 @@ public class ItineraryView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(currentIntineraryLabel)
                             .addComponent(backButton))
                         .addGap(56, 56, 56)
                         .addComponent(ItineraryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -102,7 +102,7 @@ public class ItineraryView extends javax.swing.JFrame {
                     .addComponent(ItineraryLabel)
                     .addComponent(backButton))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(currentIntineraryLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -119,26 +119,30 @@ public class ItineraryView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void detailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsButtonActionPerformed
-        // TODO add your handling code here:
+        ItineraryController.navigateToAttractionDetailsView();
     }//GEN-LAST:event_detailsButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        // TODO add your handling code here:
+
+        EventSlot eventToDelete = itineraryList.getSelectedValue();
+        ItineraryController.removeEvent(eventToDelete);
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+        ItineraryController.navigateToAttractionView();
     }//GEN-LAST:event_addButtonActionPerformed
 
- 
+    public void updateItineraryList(String[] events) {
+        itineraryList.setListData(events);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ItineraryLabel;
     private javax.swing.JButton addButton;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel currentIntineraryLabel;
     private javax.swing.JButton detailsButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> itineraryList;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton removeButton;
     // End of variables declaration//GEN-END:variables
