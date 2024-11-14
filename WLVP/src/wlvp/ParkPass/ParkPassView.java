@@ -6,46 +6,33 @@ package wlvp.ParkPass;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultListModel;
+import wlvp.AccountCreation.AccountController;
+import wlvp.AccountCreation.Guest;
 
 /**
  *
  * @author Daniel
  */
-public class ParkPassView extends javax.swing.JFrame implements ActionListener {
-    private static ParkPassController parkPassController;
+public class ParkPassView extends javax.swing.JFrame {
     /**
      * Creates new form ParkPassView
      */
     public ParkPassView() {
-        
-        initComponents();
-        
-       
-        
-        
+        initComponents();        
     }
+    
+    
     public void parsePass(ParkPass parkPass){
-        
-        availableCreditsTextField.setText(parkPass.getCredits()+ "");
-        
-        
-    }
-      public void AddActionListeners(){
-        addCreditsButton.addActionListener(this);
-        
-        
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object obj = e.getSource();
-        
-        if(obj == addCreditsButton){
-            int amount = Integer.parseInt(creditTextField.getText());
-            parkPassController.addCredits(amount);
-            
+        availableCreditsTextField.setText(Integer.toString(parkPass.getCredits()));
+        DefaultListModel<String> model = new DefaultListModel();
+        for (Guest guest : parkPass.getGuests()) {
+            model.addElement(guest.toString());
         }
+        
+        guestListView.setModel(model);
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,12 +73,27 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
         parkPassPanel.add(creditTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         addCreditsButton.setText("Add Credits");
+        addCreditsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCreditsButtonActionPerformed(evt);
+            }
+        });
         parkPassPanel.add(addCreditsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 108, -1));
 
         toItineraryButton.setText("Itinerary");
+        toItineraryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toItineraryButtonActionPerformed(evt);
+            }
+        });
         parkPassPanel.add(toItineraryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 6, 92, -1));
 
         toAccountButton.setText("Account");
+        toAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toAccountButtonActionPerformed(evt);
+            }
+        });
         parkPassPanel.add(toAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 6, -1, -1));
 
         logoutButton.setText("Refresh");
@@ -131,6 +133,23 @@ public class ParkPassView extends javax.swing.JFrame implements ActionListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void toAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toAccountButtonActionPerformed
+        AccountController.navigateToAccountManagement();
+    }//GEN-LAST:event_toAccountButtonActionPerformed
+
+    private void toItineraryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toItineraryButtonActionPerformed
+        // Navigate to itinerary
+        //ItineraryController.navigateToItinerary();
+    }//GEN-LAST:event_toItineraryButtonActionPerformed
+
+    private void addCreditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCreditsButtonActionPerformed
+        try {
+            ParkPassController.addCredits(Integer.parseInt(creditTextField.getText()));
+        } catch (NumberFormatException ex) {
+            
+        }        
+    }//GEN-LAST:event_addCreditsButtonActionPerformed
 
     /**
      * @param args the command line arguments
