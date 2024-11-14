@@ -6,6 +6,7 @@ package wlvp.Itinerary;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import wlvp.Attraction.AttractionController;
 import wlvp.ParkPass.ParkPassController;
 
 /**
@@ -127,7 +128,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void detailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsButtonActionPerformed
-        ItineraryController.navigateToAttractionDetailsView();
+       AttractionController.navigateToAttractionDetailsView();
     }//GEN-LAST:event_detailsButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
@@ -138,7 +139,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        ItineraryController.navigateToAttractionView();
+        AttractionController.openAttractionListView();
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
