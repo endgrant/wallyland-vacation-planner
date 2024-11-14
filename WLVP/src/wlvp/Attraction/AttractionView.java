@@ -73,21 +73,11 @@ public class AttractionView extends javax.swing.JFrame{
 
         restaurantListLabel.setText("Restaurants");
 
-        rideList.setModel(new javax.swing.AbstractListModel<AbstractAttraction>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        rideScrollPane.setViewportView(rideList);
         rideList.setModel(rideListModel);
+        rideScrollPane.setViewportView(rideList);
 
-        restaurantList.setModel(new javax.swing.AbstractListModel<AbstractAttraction>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        restaurantScrollPane.setViewportView(restaurantList);
         restaurantList.setModel(restaurantListModel);
+        restaurantScrollPane.setViewportView(restaurantList);
 
         attractionLabel.setText("Attractions");
 
