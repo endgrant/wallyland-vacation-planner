@@ -16,6 +16,7 @@ import static wlvp.Attraction.AttractionView.attractionList;
 public class AttractionController {
     public static AttractionView attractionView;
     public static AbstractAttraction attraction;
+    public static AttractionDetailsView detailListView;
     public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
     public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
    public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
@@ -28,6 +29,11 @@ public class AttractionController {
        
        
        view.setVisible(true);
+   }
+   public static void navigateToAttractionDetailsView(){
+       
+       AttractionDetailsView detailView = new AttractionDetailsView();
+       detailView.setVisible(true);
    }
    public static void populateAttractionList(){
        
