@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import wlvp.AccountCreation.AccountController;
 import wlvp.AccountCreation.Guest;
+import wlvp.Itinerary.ItineraryController;
 
 /**
  *
@@ -139,8 +140,7 @@ public class ParkPassView extends javax.swing.JFrame {
     }//GEN-LAST:event_toAccountButtonActionPerformed
 
     private void toItineraryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toItineraryButtonActionPerformed
-        // Navigate to itinerary
-        //ItineraryController.navigateToItinerary();
+        ItineraryController.navigateToAttractionView();
     }//GEN-LAST:event_toItineraryButtonActionPerformed
 
     private void addCreditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCreditsButtonActionPerformed
