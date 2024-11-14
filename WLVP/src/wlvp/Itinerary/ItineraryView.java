@@ -4,17 +4,24 @@
  */
 package wlvp.Itinerary;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author madle
  */
 public class ItineraryView extends javax.swing.JFrame {
 
+    private DefaultListModel<EventSlot> listModel;
+
     /**
      * Creates new form ItineraryView
      */
     public ItineraryView() {
         initComponents();
+        listModel = new DefaultListModel<>();
+        itineraryList.setModel(listModel);
     }
 
     /**
@@ -64,14 +71,15 @@ public class ItineraryView extends javax.swing.JFrame {
             }
         });
 
-        itineraryList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        itineraryList.setModel(listModel);
         jScrollPane2.setViewportView(itineraryList);
 
         backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,17 +131,25 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_detailsButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-
         EventSlot eventToDelete = itineraryList.getSelectedValue();
-        ItineraryController.removeEvent(eventToDelete);
+        if (eventToDelete != null) {
+            ItineraryController.removeEvent(eventToDelete);
+        }
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         ItineraryController.navigateToAttractionView();
     }//GEN-LAST:event_addButtonActionPerformed
 
-    public void updateItineraryList(String[] events) {
-        itineraryList.setListData(events);
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    public void updateItineraryList(ArrayList<EventSlot> events) {
+        listModel.clear(); // Clear the existing data
+        for (EventSlot event : events) {
+            listModel.addElement(event); // Add each event to the model
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -142,7 +158,7 @@ public class ItineraryView extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JLabel currentIntineraryLabel;
     private javax.swing.JButton detailsButton;
-    private javax.swing.JList<String> itineraryList;
+    private javax.swing.JList<EventSlot> itineraryList;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton removeButton;
     // End of variables declaration//GEN-END:variables
