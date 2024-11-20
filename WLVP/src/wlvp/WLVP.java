@@ -20,13 +20,13 @@ public class WLVP {
         ParkPassController.initialize();
         ItineraryController.initialize();
         AttractionController.initialize();
-        AttractionController.openAttractionListView();
-        /*
+        
+        
         AccountController.navigateToAccountCreation();
 
         // Testing
         ParkPassController.addGuest(AccountController.createGuest("testemail@case.com", "pass1234"));
         ParkPassController.addGuest(AccountController.createGuest("num2email@site.com", "5678word"));
-        */
+        
     }
 }
