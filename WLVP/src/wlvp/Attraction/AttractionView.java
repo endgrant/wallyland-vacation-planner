@@ -82,6 +82,11 @@ public class AttractionView extends javax.swing.JFrame{
         attractionLabel.setText("Attractions");
 
         showDetailsButton.setText("Show Details");
+        showDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showDetailsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,6 +151,24 @@ public class AttractionView extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void showDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDetailsButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedItem;
+        
+        if(rideList.getSelectedIndex() != -1){
+            rideList.getSelectedIndex();
+            
+              AttractionController.attraction = rideList.getSelectedValue();
+            
+        }
+        else if(restaurantList.getSelectedIndex() != -1){
+            
+            AttractionController.attraction = restaurantList.getSelectedValue();
+        }
+        AttractionController.navigateToAttractionDetailsView();
+        
+    }//GEN-LAST:event_showDetailsButtonActionPerformed
 
     /**
      * @param args the command line arguments
