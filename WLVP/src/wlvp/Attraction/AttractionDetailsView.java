@@ -12,11 +12,36 @@ import wlvp.Itinerary.ItineraryController;
  * @author Daniel
  */
 public class AttractionDetailsView extends javax.swing.JFrame {
-
+    
     /** Creates new form AttractionDetailsView */
     public AttractionDetailsView() {
+        
         initComponents();
+        updateDetailsView();
     }
+    
+    public void updateDetailsView(){
+       Restaurant test = new Restaurant(123,false,"asdasd",RestaurantType.QuickService);
+        boolean isOpen = AttractionController.attraction.getStatus();
+        
+        if(isOpen){
+            detailStatusTextField.setText("Open");
+            
+        }
+        else{
+            detailStatusTextField.setText("Closed");
+        }
+        
+        
+        detailNameTextField.setText(AttractionController.attraction.getName());
+        
+        
+        
+        
+    }
+    
+   
+ 
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -36,6 +61,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
         detailStatusTextField = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        toAttractionButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,17 +86,20 @@ public class AttractionDetailsView extends javax.swing.JFrame {
 
         jButton2.setText("Add to Itinerary");
 
+        toAttractionButton.setText("Attractions");
+        toAttractionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toAttractionButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(detailsNameLabel)
@@ -80,8 +109,17 @@ public class AttractionDetailsView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(detailNameTextField)
                             .addComponent(detailTypeTextField)
-                            .addComponent(detailStatusTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(detailStatusTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addContainerGap(68, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(toAttractionButton)
+                        .addGap(44, 44, 44))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(116, 116, 116))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,10 +136,12 @@ public class AttractionDetailsView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(detailStatusLabel)
                     .addComponent(detailStatusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
-                    .addComponent(jButton2))
+                    .addComponent(toAttractionButton))
                 .addGap(41, 41, 41))
         );
 
@@ -130,6 +170,13 @@ public class AttractionDetailsView extends javax.swing.JFrame {
         ItineraryController.navigateToItinerary();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void toAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toAttractionButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        AttractionController.openAttractionListView();
+       
+    }//GEN-LAST:event_toAttractionButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -145,6 +192,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
     private javax.swing.JLabel detailsNameLabel;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton toAttractionButton;
     // End of variables declaration//GEN-END:variables
 
 }
