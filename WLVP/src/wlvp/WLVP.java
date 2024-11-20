@@ -19,6 +19,7 @@ public class WLVP {
         AccountController.initialize();
         ParkPassController.initialize();
         ItineraryController.initialize();
+        AttractionController.initialize();
         AttractionController.openAttractionListView();
         /*
         AccountController.navigateToAccountCreation();

@@ -23,12 +23,16 @@ public class AttractionController {
     
 
    public static void openAttractionListView(){
-       populateAttractionList();
-       populateListModels();
+       
        AttractionView view = new AttractionView();
        
        
        view.setVisible(true);
+   }
+   
+   public static void initialize(){
+       populateAttractionList();
+       populateListModels();
    }
    public static void navigateToAttractionDetailsView(){
        
