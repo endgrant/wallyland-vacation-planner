@@ -26,9 +26,9 @@ public class ParkPassView extends javax.swing.JFrame {
     
     public void parsePass(ParkPass parkPass){
         availableCreditsTextField.setText(Integer.toString(parkPass.getCredits()));
-        DefaultListModel<String> model = new DefaultListModel();
+        DefaultListModel<Guest> model = new DefaultListModel();
         for (Guest guest : parkPass.getGuests()) {
-            model.addElement(guest.toString());
+            model.addElement(guest);
         }
         
         guestListView.setModel(model);
@@ -94,11 +94,7 @@ public class ParkPassView extends javax.swing.JFrame {
         });
         parkPassPanel.add(toAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 6, -1, -1));
 
-        guestListView.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        guestListView.setModel(new DefaultListModel<Guest>());
         guestScrollPane.setViewportView(guestListView);
 
         parkPassPanel.add(guestScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 228));
@@ -162,7 +158,11 @@ public class ParkPassView extends javax.swing.JFrame {
     }//GEN-LAST:event_toItineraryButtonActionPerformed
 
     private void removeGuestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeGuestButtonActionPerformed
+         int index = guestListView.getSelectedIndex();
+         Guest selectedGuest = guestListView.getModel().getElementAt(index);
+         ParkPassController.removeGuest(selectedGuest);
          
+         parsePass(ParkPassController.getParkPass());
     }//GEN-LAST:event_removeGuestButtonActionPerformed
 
     private void addCreditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCreditsButtonActionPerformed
@@ -190,7 +190,7 @@ public class ParkPassView extends javax.swing.JFrame {
     private javax.swing.JTextField availableCreditsTextField;
     private javax.swing.JTextField creditTextField;
     private javax.swing.JLabel guestListLabel;
-    private javax.swing.JList<String> guestListView;
+    private javax.swing.JList<Guest> guestListView;
     private javax.swing.JScrollPane guestScrollPane;
     private javax.swing.JTextField inviteEmailField;
     public javax.swing.JButton inviteGuestButton;

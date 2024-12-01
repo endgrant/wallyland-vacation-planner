@@ -77,6 +77,15 @@ public class ParkPassController {
     
     
     /**
+     * Removes a guest from the park pass
+     * @param guest The guest to be removed
+     */
+    public static void removeGuest(Guest guest) {
+        parkPass.removeGuest(guest);
+    }
+    
+    
+    /**
      * Checks if the park pass contains the given Guest already
      * @param guest The guest to check if is contained in the park pass
      * @return True if the passed guest is already on the park pass, false otherwise
