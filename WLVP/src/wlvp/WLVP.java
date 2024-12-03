@@ -38,4 +38,15 @@ public class WLVP {
         ParkPassController.addGuest(AccountController.createGuest("testemail@case.com", "pass1234"));
         ParkPassController.addGuest(AccountController.createGuest("num2email@site.com", "5678word"));
     }
+    
+    
+    /**
+     * Closes the views of other controllers
+     */
+    public static void closeOtherWindows() {
+        AccountController.hideAllWindows();
+        ParkPassController.hideAllWindows();
+        ItineraryController.hideAllWindows();
+        AttractionController.hideAllWindows();
+    }
 }

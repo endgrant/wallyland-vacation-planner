@@ -7,6 +7,7 @@ package wlvp.Itinerary;
 import java.util.ArrayList;
 import wlvp.Attraction.AttractionDetailsView;
 import wlvp.Attraction.AttractionView;
+import wlvp.WLVP;
 
 /**
  *
@@ -32,6 +33,9 @@ public class ItineraryController {
         
         itineraryView = new ItineraryView();
         itineraryView.setSize(600, 600);
+        
+        attractionView = new AttractionView();
+        attractionView.setSize(600, 600);
     }
 
     /**
@@ -47,8 +51,18 @@ public class ItineraryController {
      * Navigates to the Itinerary view
      */
     public static void navigateToItinerary() {
+        WLVP.closeOtherWindows();
         itineraryView.setVisible(true);
     }
+    
+    /**
+     * Hides all related windows
+     */
+    public static void hideAllWindows() {
+        itineraryView.setVisible(false);
+        attractionView.setVisible(false);
+    }
+   
     
     /**
      * Removes EventSlot from Itinerary and updates view accordingly
