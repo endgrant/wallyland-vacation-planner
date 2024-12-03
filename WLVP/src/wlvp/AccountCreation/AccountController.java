@@ -76,7 +76,7 @@ public class AccountController {
      * @return Returns true if the password is valid
      */
     public static boolean isPasswordValid(String password) {
-        if (!password.matches("^[a-zA-Z0-9]+$")) {
+        if (!password.matches("^[a-zA-Z0-9!@#$%^&*()-_+=]+$")) {
             return false;
         }
 
