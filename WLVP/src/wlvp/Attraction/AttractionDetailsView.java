@@ -15,10 +15,9 @@ public class AttractionDetailsView extends javax.swing.JFrame {
     
     /** Creates new form AttractionDetailsView */
     public AttractionDetailsView() {
-        
         initComponents();
-        updateDetailsView();
     }
+    
     
     public void updateDetailsView(){
        Restaurant test = new Restaurant(123,false,"asdasd",RestaurantType.QuickService);
@@ -173,7 +172,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
     private void toAttractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toAttractionButtonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        AttractionController.openAttractionListView();
+        AttractionController.navigateToAttractionView();
        
     }//GEN-LAST:event_toAttractionButtonActionPerformed
 
