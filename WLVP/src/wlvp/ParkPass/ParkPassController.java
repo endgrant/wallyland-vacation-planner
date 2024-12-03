@@ -33,8 +33,16 @@ public class ParkPassController {
      * Makes the park pass view active
      */
     public static void navigateToParkPass(){
+        WLVP.closeOtherWindows();
         parkPassView.parsePass(parkPass);
         parkPassView.setVisible(true);
+    }
+    
+    /**
+     * Hides all related windows
+     */
+    public static void hideAllWindows() {
+        parkPassView.setVisible(false);
     }
     
     

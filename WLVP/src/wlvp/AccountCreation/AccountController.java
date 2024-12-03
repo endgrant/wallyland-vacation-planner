@@ -129,6 +129,7 @@ public class AccountController {
      * Navigates to the account creation interface
      */
     public static void navigateToAccountCreation() {
+        WLVP.closeOtherWindows();
         accountCreationView.setVisible(true);
     }
 
@@ -136,9 +137,19 @@ public class AccountController {
      * Navigates to the account management interface
      */
     public static void navigateToAccountManagement() {
+        WLVP.closeOtherWindows();
         accountManagementView.setVisible(true);
     }
+    
+    /**
+     * Hides all related windows
+     */
+    public static void hideAllWindows() {
+        accountCreationView.setVisible(false);
+        accountManagementView.setVisible(false);
+    }
 
+    
     /**
      * Creates a new report
      *
