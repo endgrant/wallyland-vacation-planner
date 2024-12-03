@@ -44,7 +44,6 @@ public class ParkPassView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        parkPassPanel = new javax.swing.JPanel();
         parkPassLabel = new javax.swing.JLabel();
         inviteEmailField = new javax.swing.JTextField();
         removeGuestButton = new javax.swing.JButton();
@@ -61,14 +60,10 @@ public class ParkPassView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        parkPassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         parkPassLabel.setFont(new java.awt.Font("Kailasa", 1, 14)); // NOI18N
         parkPassLabel.setText("Park Pass");
         parkPassLabel.setToolTipText("");
         parkPassLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        parkPassPanel.add(parkPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, 20));
-        parkPassPanel.add(inviteEmailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 170, -1));
 
         removeGuestButton.setText("Remove");
         removeGuestButton.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +71,6 @@ public class ParkPassView extends javax.swing.JFrame {
                 removeGuestButtonActionPerformed(evt);
             }
         });
-        parkPassPanel.add(removeGuestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 80, -1));
 
         toItineraryButton.setText("Itinerary");
         toItineraryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +78,6 @@ public class ParkPassView extends javax.swing.JFrame {
                 toItineraryButtonActionPerformed(evt);
             }
         });
-        parkPassPanel.add(toItineraryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 6, 92, -1));
 
         toAccountButton.setText("Account");
         toAccountButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,26 +85,20 @@ public class ParkPassView extends javax.swing.JFrame {
                 toAccountButtonActionPerformed(evt);
             }
         });
-        parkPassPanel.add(toAccountButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 6, -1, -1));
 
         guestListView.setModel(new DefaultListModel<Guest>());
         guestScrollPane.setViewportView(guestListView);
 
-        parkPassPanel.add(guestScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 228));
-
         availableCreditsTextField.setEditable(false);
-        parkPassPanel.add(availableCreditsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 100, -1));
 
         guestListLabel.setText("Guests");
         guestListLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        parkPassPanel.add(guestListLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 60, -1));
 
         availableCreditLabel.setText("Credits Available");
         availableCreditLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        parkPassPanel.add(availableCreditLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 40, 100, -1));
 
+        creditTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         creditTextField.setText("0");
-        parkPassPanel.add(creditTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
 
         addCreditsButton.setText("Add Credits");
         addCreditsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +106,6 @@ public class ParkPassView extends javax.swing.JFrame {
                 addCreditsButtonActionPerformed(evt);
             }
         });
-        parkPassPanel.add(addCreditsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 108, -1));
 
         inviteGuestButton.setText("Invite");
         inviteGuestButton.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +113,6 @@ public class ParkPassView extends javax.swing.JFrame {
                 inviteGuestButtonActionPerformed(evt);
             }
         });
-        parkPassPanel.add(inviteGuestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 60, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,14 +120,58 @@ public class ParkPassView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(parkPassPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(guestScrollPane)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(toAccountButton)
+                        .addGap(61, 61, 61)
+                        .addComponent(parkPassLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(toItineraryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(availableCreditLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addCreditsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(inviteEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inviteGuestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removeGuestButton, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(guestListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(availableCreditsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(creditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(parkPassPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(parkPassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toItineraryButton)
+                    .addComponent(toAccountButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(availableCreditLabel)
+                    .addComponent(addCreditsButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(availableCreditsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(guestListLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inviteEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inviteGuestButton)
+                    .addComponent(removeGuestButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(guestScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -195,7 +224,6 @@ public class ParkPassView extends javax.swing.JFrame {
     private javax.swing.JTextField inviteEmailField;
     public javax.swing.JButton inviteGuestButton;
     private javax.swing.JLabel parkPassLabel;
-    private javax.swing.JPanel parkPassPanel;
     public javax.swing.JButton removeGuestButton;
     public javax.swing.JButton toAccountButton;
     private javax.swing.JButton toItineraryButton;
