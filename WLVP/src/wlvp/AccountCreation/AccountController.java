@@ -9,34 +9,34 @@ import wlvp.WLVP;
  * @author Grant
  */
 public class AccountController {
+
     private static boolean initialized;
     private static int nextUserId = 0;
     private static AbstractUser user;
     private static AccountCreationView accountCreationView;
     private static AccountManagerView accountManagementView;
-    
-    
+
     /**
      * Initializes the account controller
      */
     public static void initialize() {
-        assert(!initialized);
+        assert (!initialized);
         initialized = true;
-        
+
         accountCreationView = new AccountCreationView();
         accountCreationView.setSize(600, 600);
         accountManagementView = new AccountManagerView();
         accountManagementView.setSize(600, 600);
     }
-    
-    
+
     /**
      * Checks if the given email is valid
+     *
      * @param email
      * @return Returns true if the email is valid
      */
     public static boolean isEmailValid(String email) {
-        if (!email.matches("[a-zA-Z0-9_@]+")) { // RegEx for alphanumeric, underscores and at sign
+        if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
             return false;
         }
         
@@ -44,7 +44,7 @@ public class AccountController {
         if (email.length() > 32) {
             return false;
         }
-        
+
         // Check if there are at least 3 alphanumeric characters
         int count = 0;
         for (char c : email.toCharArray()) {
@@ -52,7 +52,7 @@ public class AccountController {
                 count++;
             }
         }
-        
+
         // Check if there is exactly one at symbol
         boolean exactlyOne = false;
         for (char c : email.toCharArray()) {
@@ -65,26 +65,26 @@ public class AccountController {
                 }
             }
         }
-        
+
         return count >= 3 && exactlyOne;
     }
-    
-    
+
     /**
      * Checks if the given password is valid
+     *
      * @param password
      * @return Returns true if the password is valid
      */
     public static boolean isPasswordValid(String password) {
-        if (!password.matches("[a-zA-Z0-9_!&%$#*^()?-]+")) { // RegEx for alphanumeric and certain special characters
+        if (!password.matches("^[a-zA-Z0-9]+$")) {
             return false;
         }
-        
+
         // Disallow passwords shorter than 8 characters or longer than 24
         if (password.length() < 8 || password.length() > 24) {
             return false;
         }
-        
+
         // Check if there are at least 3 alphanumeric characters
         int count = 0;
         for (char c : password.toCharArray()) {
@@ -92,11 +92,10 @@ public class AccountController {
                 count++;
             }
         }
-        
+
         return count >= 3;
     }
-    
-    
+
     /**
      * @param email
      * @param password
@@ -111,8 +110,7 @@ public class AccountController {
         
         return guest;
     }
-    
-    
+
     /**
      * @param email
      * @param password
@@ -123,11 +121,10 @@ public class AccountController {
         Employee employee = new Employee(nextUserId, email, password, type);
         nextUserId++;
         user = employee;
-        
+
         return employee;
     }
-    
-    
+
     /**
      * Navigates to the account creation interface
      */
@@ -135,8 +132,7 @@ public class AccountController {
         WLVP.closeOtherWindows();
         accountCreationView.setVisible(true);
     }
-    
-    
+
     /**
      * Navigates to the account management interface
      */
@@ -156,37 +152,33 @@ public class AccountController {
     
     /**
      * Creates a new report
+     *
      * @param type The type of the report
      * @return The newly created report object
      */
     public static Report createReport(ReportType type) {
         return new Report(type);
     }
-    
-    
+
     /**
      * Signs the user out and returns to the landing page
      */
     public static void logout() {
         navigateToAccountCreation();
     }
-    
-    
+
     /**
      * @param newEmail The new email
      */
     public static void changeEmail(String newEmail) {
         user.email = newEmail;
     }
-    
-    
+
     /**
      * @param newPassword The new password
      */
     public static void changePassword(String newPassword) {
         user.password = newPassword;
     }
-    
-    
-  
+
 }

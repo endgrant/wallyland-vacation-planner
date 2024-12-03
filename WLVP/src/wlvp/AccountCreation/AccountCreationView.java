@@ -35,6 +35,7 @@ public class AccountCreationView extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         accountLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         accountLabel.setText("Account Login");
@@ -74,6 +75,11 @@ public class AccountCreationView extends javax.swing.JFrame {
         });
 
         loginButton.setText("Log In");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,20 +135,20 @@ public class AccountCreationView extends javax.swing.JFrame {
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         String email = emailTextField.getText();
-    if (AccountController.isEmailValid(email)) {
-        JOptionPane.showMessageDialog(this, "Email is valid.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid email format. Please try again.");
-    }
+        if (AccountController.isEmailValid(email)) {
+            JOptionPane.showMessageDialog(this, "Email is valid.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid email format. Please try again.");
+        }
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
-       String password = passwordTextField.getText();
-    if (AccountController.isPasswordValid(password)) {
-        JOptionPane.showMessageDialog(this, "Password is valid.");
-    } else {
-        JOptionPane.showMessageDialog(this, "Invalid password. Password must be 8-24 characters and contain at least 3 alphanumeric characters.");
-    }
+        String password = passwordTextField.getText();
+        if (AccountController.isPasswordValid(password)) {
+            JOptionPane.showMessageDialog(this, "Password is valid.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid password. Password must be 8-24 characters and contain at least 3 alphanumeric characters.");
+        }
     }//GEN-LAST:event_passwordTextFieldActionPerformed
 
 
@@ -150,13 +156,36 @@ public class AccountCreationView extends javax.swing.JFrame {
         String email = emailTextField.getText();
         String password = passwordTextField.getText();
 
-        // Validate email and password before creating the user
-        if (AccountController.isEmailValid(email) && AccountController.isPasswordValid(password)) {
+        // Check email validity
+        boolean isEmailValid = AccountController.isEmailValid(email);
+        // Check password validity
+        boolean isPasswordValid = AccountController.isPasswordValid(password);
+
+        // Provide specific feedback for validation errors
+        if (!isEmailValid && !isPasswordValid) {
+            JOptionPane.showMessageDialog(this,
+                    "Both email and password are invalid.\n"
+                    + "- Email must include '@' and a domain, and be under 16 characters.\n"
+                    + "- Password must be 8-24 characters, with at least 3 alphanumeric characters.",
+                    "Invalid Input",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (!isEmailValid) {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid email format. Please ensure it includes '@' and a domain, and is under 16 characters.",
+                    "Invalid Email",
+                    JOptionPane.ERROR_MESSAGE);
+        } else if (!isPasswordValid) {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid password format. Password must be 8-24 characters long and contain at least 3 alphanumeric characters.",
+                    "Invalid Password",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            // If both are valid, proceed with account creation
             AccountController.createGuest(email, password); // Assuming this is a guest user (type null)
             ParkPassController.navigateToParkPass();
-        } else {
-            JOptionPane.showMessageDialog(this, "Invalid email or password format. Please try again.");
+            JOptionPane.showMessageDialog(this, "Account created successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
+
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
 
@@ -165,6 +194,10 @@ public class AccountCreationView extends javax.swing.JFrame {
         AccountController.navigateToAccountCreation();
         JOptionPane.showMessageDialog(this, "You have logged out successfully.");
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        ParkPassController.navigateToParkPass();
+    }//GEN-LAST:event_loginButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

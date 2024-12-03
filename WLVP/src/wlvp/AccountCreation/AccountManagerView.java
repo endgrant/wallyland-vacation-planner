@@ -34,6 +34,7 @@ public class AccountManagerView extends javax.swing.JFrame {
         logOutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         emailTextField.setText("New Email");
         emailTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -84,9 +85,9 @@ public class AccountManagerView extends javax.swing.JFrame {
                     .addComponent(emailTextField)
                     .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordButton)
-                    .addComponent(emailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(passwordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(emailButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(42, 42, 42))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,8 +129,16 @@ public class AccountManagerView extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordTextFieldActionPerformed
 
     private void passwordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordButtonActionPerformed
-        String newPassword = passwordTextField.getText(); 
-        AccountController.changePassword(newPassword);   
+        String newPassword = passwordTextField.getText(); // Capture the password from text field
+
+        if (AccountController.isPasswordValid(newPassword)) {
+            AccountController.changePassword(newPassword);
+            javax.swing.JOptionPane.showMessageDialog(this, "Password successfully changed!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Invalid password format. Password must be 8-24 characters, include uppercase, lowercase, a digit, and a special character.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_passwordButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
@@ -138,7 +147,13 @@ public class AccountManagerView extends javax.swing.JFrame {
 
     private void emailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailButtonActionPerformed
         String newEmail = emailTextField.getText(); // Capture the email from text field
-        AccountController.changeEmail(newEmail);   
+
+        if (AccountController.isEmailValid(newEmail)) {
+            AccountController.changeEmail(newEmail);
+            javax.swing.JOptionPane.showMessageDialog(this, "Email successfully changed!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Invalid email format. Please try again.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_emailButtonActionPerformed
 
 
