@@ -21,6 +21,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
     
     public void updateDetailsView(){
        Restaurant test = new Restaurant(123,false,"asdasd",RestaurantType.QuickService);
+       if (AttractionController.attraction == null) { return; }  
         boolean isOpen = AttractionController.attraction.getStatus();
         
         if(isOpen){
