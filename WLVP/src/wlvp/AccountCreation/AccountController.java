@@ -39,9 +39,9 @@ public class AccountController {
         if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
             return false;
         }
-
-        // Disallow usernames longer than 16 characters
-        if (email.length() > 200) {
+        
+        // Disallow emails longer than 32 characters
+        if (email.length() > 32) {
             return false;
         }
 
@@ -105,7 +105,9 @@ public class AccountController {
         Guest guest = new Guest(nextUserId, email, password);
         nextUserId++;
         user = guest;
-
+        
+        WLVP.guestList.add(guest);
+        
         return guest;
     }
 
