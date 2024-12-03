@@ -129,6 +129,10 @@ public class AccountCreationView extends javax.swing.JFrame {
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         String email = emailTextField.getText();
+      if (email.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Email field cannot be empty.");
+        return;
+    }    
     if (AccountController.isEmailValid(email)) {
         JOptionPane.showMessageDialog(this, "Email is valid.");
     } else {
@@ -138,6 +142,10 @@ public class AccountCreationView extends javax.swing.JFrame {
 
     private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
        String password = passwordTextField.getText();
+     if (password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Password field cannot be empty.");
+        return;
+    }   
     if (AccountController.isPasswordValid(password)) {
         JOptionPane.showMessageDialog(this, "Password is valid.");
     } else {
