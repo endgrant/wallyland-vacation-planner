@@ -121,6 +121,8 @@ public class AccountController {
         Employee employee = new Employee(nextUserId, email, password, type);
         nextUserId++;
         user = employee;
+        
+        WLVP.employeeList.add(employee);
 
         return employee;
     }
@@ -159,7 +161,31 @@ public class AccountController {
     public static Report createReport(ReportType type) {
         return new Report(type);
     }
-
+    
+    
+    /**
+     * Signs the user in
+     * @param email The user's email
+     * @param password The user's password
+     * @return The account associated with the credentials
+     */
+    public static AbstractUser login(String email, String password) {
+        for (Guest guest : WLVP.guestList) {
+            if (guest.getEmail().equals(email) && guest.getPassword().equals(password)) {
+                return guest;
+            }
+        }
+        
+        for (Employee employee : WLVP.employeeList) {
+            if (employee.getEmail().equals(email) && employee.getPassword().equals(password)) {
+                return employee;
+            }
+        }
+        
+        return null;
+    }
+    
+    
     /**
      * Signs the user out and returns to the landing page
      */

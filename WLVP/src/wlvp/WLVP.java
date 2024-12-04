@@ -3,6 +3,7 @@ package wlvp;
 
 import java.util.ArrayList;
 import wlvp.AccountCreation.AccountController;
+import wlvp.AccountCreation.Employee;
 import wlvp.Attraction.AttractionController;
 import wlvp.AccountCreation.EmployeeType;
 import wlvp.AccountCreation.Guest;
@@ -14,6 +15,7 @@ import wlvp.ParkPass.ParkPassController;
  */
 public class WLVP {
     public static ArrayList<Guest> guestList = new ArrayList();
+    public static ArrayList<Employee> employeeList = new ArrayList();
     
     
     /**
@@ -31,6 +33,8 @@ public class WLVP {
         AccountController.createGuest("guest2@email.com", "password2");
         AccountController.createGuest("guest3@email.com", "password3");
         AccountController.createGuest("guest4@email.com", "password4");
+        AccountController.createEmployee("employee1@email.com", "password1", EmployeeType.MANAGER);
+        AccountController.createEmployee("employee2@email.com", "password2", EmployeeType.STAFF);
         
         AccountController.navigateToAccountCreation();
 

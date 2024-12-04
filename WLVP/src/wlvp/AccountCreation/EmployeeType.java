@@ -5,8 +5,8 @@ package wlvp.AccountCreation;
  * @author Grant
  */
 public enum EmployeeType {
-    Staff,
-    Manager,
+    STAFF,
+    MANAGER,
     SECURITY,
     MAINTENANCE
 }

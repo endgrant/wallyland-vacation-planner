@@ -196,7 +196,22 @@ public class AccountCreationView extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        ParkPassController.navigateToParkPass();
+        String email = emailTextField.getText();
+        String password = passwordTextField.getText();
+        AbstractUser user = AccountController.login(email, password);
+
+        if (user == null) {
+            JOptionPane.showMessageDialog(this, "Invalid login credentials.", "Invalid Credentials", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Class<?> userType = user.getClass();
+            if (userType.isAssignableFrom(Guest.class)) {
+                // User is a Guest
+                ParkPassController.navigateToParkPass();
+            } else if (userType.isAssignableFrom(Employee.class)) {
+                // User is an Employee
+                
+            }
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
 
