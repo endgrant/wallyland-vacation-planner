@@ -144,6 +144,7 @@ public class NewReportView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addReportButtonActionPerformed
+        ReportController.addNewReport();
         
     }//GEN-LAST:event_addReportButtonActionPerformed
 
