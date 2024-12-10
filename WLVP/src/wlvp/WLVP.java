@@ -7,6 +7,7 @@ import wlvp.AccountCreation.Employee;
 import wlvp.Attraction.AttractionController;
 import wlvp.AccountCreation.EmployeeType;
 import wlvp.AccountCreation.Guest;
+import wlvp.IncidentReporting.ReportController;
 import wlvp.Itinerary.ItineraryController;
 import wlvp.ParkPass.ParkPassController;
 
@@ -27,6 +28,8 @@ public class WLVP {
         ParkPassController.initialize();
         ItineraryController.initialize();
         AttractionController.initialize();
+        ReportController.initialize();
+
         
         // Create some dummy accounts
         AccountController.createGuest("guest1@email.com", "password1");
