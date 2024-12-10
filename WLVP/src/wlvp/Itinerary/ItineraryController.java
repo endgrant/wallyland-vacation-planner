@@ -19,7 +19,6 @@ public class ItineraryController {
     private static Itinerary itinerary;
     private static ItineraryView itineraryView;
     private static AttractionView attractionView; 
-    private static AttractionDetailsView attractionDetailsView; 
     private static ArrayList<EventSlot> events;
 
     /**
@@ -61,9 +60,16 @@ public class ItineraryController {
     public static void hideAllWindows() {
         itineraryView.setVisible(false);
         attractionView.setVisible(false);
+    }  
+       /**
+     * Add EventSlot to Itinerary and updates view accordingly
+     * @param eventToAdd
+     */
+    public static void addToItinerary(EventSlot eventToAdd) {
+        itinerary.addEvent(eventToAdd); 
+        events = itinerary.getEvents();   
+        itineraryView.updateItineraryList(events);
     }
-   
-    
     /**
      * Removes EventSlot from Itinerary and updates view accordingly
      * @param eventToDelete
