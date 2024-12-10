@@ -43,6 +43,6 @@ public class Guest extends AbstractUser {
     
     @Override
     public String toString() {
-        return this.email + "       " + Integer.toString(this.ID);
+        return this.email;
     }
 }
