@@ -30,10 +30,8 @@ public class AttractionController {
         initialized = true;
         
         attractionView = new AttractionView();
-        attractionView.setSize(600, 600);
         
         detailListView = new AttractionDetailsView();
-        detailListView.setSize(600, 600);
         
         populateAttractionList();
         populateListModels();
@@ -103,7 +101,4 @@ public class AttractionController {
     public static DefaultListModel<AbstractAttraction> getRestaurantListModel(){
         return restaurantListModel;
     }
-   
-   
-   
 }
