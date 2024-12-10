@@ -4,6 +4,8 @@
  */
 package wlvp.AccountCreation;
 
+import wlvp.ParkPass.ParkPassController;
+
 /**
  *
  * @author Miranda
@@ -32,6 +34,7 @@ public class AccountManagerView extends javax.swing.JFrame {
         passwordButton = new javax.swing.JButton();
         accManagerLabel = new javax.swing.JLabel();
         logOutButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -75,6 +78,13 @@ public class AccountManagerView extends javax.swing.JFrame {
             }
         });
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,15 +105,19 @@ public class AccountManagerView extends javax.swing.JFrame {
                         .addGap(146, 146, 146)
                         .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
+                        .addContainerGap()
+                        .addComponent(backButton)
+                        .addGap(71, 71, 71)
                         .addComponent(accManagerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(accManagerLabel)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(accManagerLabel)
+                    .addComponent(backButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailButton)
@@ -156,9 +170,14 @@ public class AccountManagerView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_emailButtonActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        ParkPassController.navigateToParkPass(); 
+    }//GEN-LAST:event_backButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel accManagerLabel;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton emailButton;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JButton logOutButton;
