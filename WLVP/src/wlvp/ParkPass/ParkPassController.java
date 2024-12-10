@@ -25,7 +25,6 @@ public class ParkPassController {
         createNewParkPass(0);
         
         parkPassView = new ParkPassView();
-        parkPassView.setSize(600, 600);
     }
     
     
