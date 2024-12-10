@@ -51,6 +51,7 @@ public class NewReportView extends javax.swing.JFrame {
         reportText = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         reportErrorLabel = new javax.swing.JLabel();
+        addReportButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,5 +157,6 @@ public class NewReportView extends javax.swing.JFrame {
     private javax.swing.JTextArea reportText;
     private javax.swing.JLabel reportTypeLabel;
     public javax.swing.JRadioButton updateRadioButton;
+    public javax.swing.JButton addReportButton;
     // End of variables declaration//GEN-END:variables
 }
