@@ -4,6 +4,8 @@
  */
 package wlvp.IncidentReporting;
 
+import javax.swing.ButtonGroup;
+
 /**
  *
  * @author Daniel
@@ -25,6 +27,11 @@ public class NewReportView extends javax.swing.JFrame {
         buttonGroup1.add(incidentRadioButton);
     }
 
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +51,7 @@ public class NewReportView extends javax.swing.JFrame {
         reportText = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         addReportButton = new javax.swing.JButton();
+        reportErrorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +70,11 @@ public class NewReportView extends javax.swing.JFrame {
         jLabel1.setText("Report:");
 
         addReportButton.setText("Add Report");
+        addReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addReportButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,7 +93,10 @@ public class NewReportView extends javax.swing.JFrame {
                                 .addComponent(feedbackRadioButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(updateRadioButton))
-                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(149, 149, 149)
+                                .addComponent(reportErrorLabel))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -96,8 +112,13 @@ public class NewReportView extends javax.swing.JFrame {
                     .addComponent(incidentRadioButton)
                     .addComponent(feedbackRadioButton)
                     .addComponent(updateRadioButton))
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(reportErrorLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -122,6 +143,10 @@ public class NewReportView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addReportButtonActionPerformed
+        
+    }//GEN-LAST:event_addReportButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -129,13 +154,14 @@ public class NewReportView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addReportButton;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton feedbackRadioButton;
-    private javax.swing.JRadioButton incidentRadioButton;
+    public javax.swing.JRadioButton feedbackRadioButton;
+    public javax.swing.JRadioButton incidentRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel reportErrorLabel;
     private javax.swing.JTextArea reportText;
     private javax.swing.JLabel reportTypeLabel;
-    private javax.swing.JRadioButton updateRadioButton;
+    public javax.swing.JRadioButton updateRadioButton;
     // End of variables declaration//GEN-END:variables
 }

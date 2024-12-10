@@ -12,7 +12,7 @@ public class Report {
      * Stores all reports
      */
     private static List<Report> allReports = new ArrayList<>();
-
+    private String description;
     /**
      * Unique integer identity
      */
@@ -53,12 +53,26 @@ public class Report {
      private static void addReport(Report report) {
         allReports.add(report);
     }
+    
      
      /**
      * @return all reports that have been added to list
      */
     public static List<Report> getAllReports() {
         return allReports;
+    }
+    public  void addReportDescription(String description){
+        this.description = description;
+        
+    }
+    public int getReportID(){
+        return this.ID;
+    }
+    public String getReportDescription(){
+        if(this.description.isEmpty()){
+            return "No Description";
+        }
+        else return this.description;
     }
 
 }

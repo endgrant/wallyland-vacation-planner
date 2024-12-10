@@ -48,6 +48,11 @@ public class ReportDetailView extends javax.swing.JFrame {
         reportTypeTextField.setEditable(false);
 
         detailBackButton.setText("Back");
+        detailBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailBackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,6 +104,11 @@ public class ReportDetailView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void detailBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailBackButtonActionPerformed
+        this.setVisible(false);
+        ReportController.openReportDetailView();
+    }//GEN-LAST:event_detailBackButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -108,9 +118,9 @@ public class ReportDetailView extends javax.swing.JFrame {
     private javax.swing.JButton detailBackButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea reportDetailsText;
+    public javax.swing.JTextArea reportDetailsText;
     private javax.swing.JLabel reportLabel;
     private javax.swing.JLabel reportTypeLabel;
-    private javax.swing.JTextField reportTypeTextField;
+    public javax.swing.JTextField reportTypeTextField;
     // End of variables declaration//GEN-END:variables
 }
