@@ -31,10 +31,8 @@ public class ItineraryController {
         itinerary = new Itinerary();
         
         itineraryView = new ItineraryView();
-        itineraryView.setSize(600, 600);
         
         attractionView = new AttractionView();
-        attractionView.setSize(600, 600);
     }
 
     /**
