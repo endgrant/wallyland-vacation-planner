@@ -3,6 +3,7 @@ package wlvp.ParkPass;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import wlvp.AccountCreation.Guest;
+import wlvp.WLVP;
 
 /**
  *
@@ -24,7 +25,6 @@ public class ParkPassController {
         createNewParkPass(0);
         
         parkPassView = new ParkPassView();
-        parkPassView.setSize(600, 600);
     }
     
     
@@ -32,8 +32,16 @@ public class ParkPassController {
      * Makes the park pass view active
      */
     public static void navigateToParkPass(){
+        WLVP.closeOtherWindows();
         parkPassView.parsePass(parkPass);
         parkPassView.setVisible(true);
+    }
+    
+    /**
+     * Hides all related windows
+     */
+    public static void hideAllWindows() {
+        parkPassView.setVisible(false);
     }
     
     
@@ -61,7 +69,7 @@ public class ParkPassController {
     /**
      * @return The park pass object
      */
-    public ParkPass getParkPass(){
+    public static ParkPass getParkPass(){
         return parkPass;
     }
     
@@ -72,6 +80,42 @@ public class ParkPassController {
      */
     public static void addGuest(Guest guest) {
         parkPass.addGuest(guest);
+    }
+    
+    
+    /**
+     * Removes a guest from the park pass
+     * @param guest The guest to be removed
+     */
+    public static void removeGuest(Guest guest) {
+        parkPass.removeGuest(guest);
+    }
+    
+    
+    /**
+     * Checks if the park pass contains the given Guest already
+     * @param guest The guest to check if is contained in the park pass
+     * @return True if the passed guest is already on the park pass, false otherwise
+     */
+    public static boolean hasGuest(Guest guest) {
+        return parkPass.getGuests().contains(guest);
+    }
+    
+    
+    /**
+     * Invites a guest to the park pass based on the passed email address
+     * @param email The email of the guest to invite
+     * @return True if invitation succeeded, false otherwise
+     */
+    public static boolean inviteGuest(String email) {
+        for (Guest guest : WLVP.guestList) {
+            if (guest.getEmail().equals(email) && !hasGuest(guest)) {
+                addGuest(guest);
+                return true;
+            }
+        }
+        
+        return false;
     }
 }
 
