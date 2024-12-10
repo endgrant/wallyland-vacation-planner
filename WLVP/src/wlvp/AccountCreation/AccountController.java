@@ -137,6 +137,7 @@ public class AccountController {
      * Navigates to the account management interface
      */
     public static void navigateToAccountManagement() {
+        accountManagementView.updateFields(user.getEmail(), user.getPassword());
         WLVP.closeOtherWindows();
         accountManagementView.setVisible(true);
     }
@@ -168,19 +169,21 @@ public class AccountController {
      * @return The account associated with the credentials
      */
     public static AbstractUser login(String email, String password) {
+        user = null;
+
         for (Guest guest : WLVP.guestList) {
             if (guest.getEmail().equals(email) && guest.getPassword().equals(password)) {
-                return guest;
+                user = guest;
             }
         }
         
         for (Employee employee : WLVP.employeeList) {
             if (employee.getEmail().equals(email) && employee.getPassword().equals(password)) {
-                return employee;
+                user = employee;
             }
         }
         
-        return null;
+        return user;
     }
     
     
