@@ -46,27 +46,59 @@ public class ReportController {
     
     
     public static void openReportDetailView(){
-        report =  reportView.reportViewList.getSelectedValue();
-        reportDetailView.reportTypeTextField.setText(report.getReportID()+"");
+        WLVP.closeOtherWindows();
+        
+        
+       
+        
+        
+        
+        reportDetailView.IDDetailTextField.setText(report.getReportID()+"");
+        reportDetailView.reportTypeTextField.setText(report.getReportType().toString());
         reportDetailView.reportDetailsText.setText(report.getReportDescription());
+        reportDetailView.setVisible(true);
     }
     public static void openNewReportView(){
+        WLVP.closeOtherWindows();
         newReportView.setVisible(true);
-        
+     
     }
     public static void addNewReport(){
+        boolean hasDescription = false;
+        
+        if(!newReportView.reportText.getText().isBlank()){
+            hasDescription = true;
+            
+        }
+        
         if(newReportView.getButtonGroup1().getSelection().equals(newReportView.incidentRadioButton)){
             Report nr = new Report(ReportType.Incident);
+            
+            if(hasDescription){
+                nr.addReportDescription(newReportView.reportText.getText());
+            }
+            Report.getAllReports().add(nr);
         }
         if(newReportView.getButtonGroup1().getSelection().equals(newReportView.feedbackRadioButton)){
             Report nr = new Report(ReportType.Feedback);
+             
+            if(hasDescription){
+                nr.addReportDescription(newReportView.reportText.getText());
+            }
+            Report.getAllReports().add(nr);
         }
         if(newReportView.getButtonGroup1().getSelection().equals(newReportView.updateRadioButton)){
             Report nr = new Report(ReportType.Update);
+             
+            if(hasDescription){
+                nr.addReportDescription(newReportView.reportText.getText());
+            }
+            Report.getAllReports().add(nr);
         }
         else{
-            newReportView.reportErrorLabel.setText("Must selected a report type before adding report");
+            newReportView.reportErrorLabel.setText("Must selected a report type before adding a new report");
         }
+        
         
             
         
@@ -79,13 +111,18 @@ public class ReportController {
         Report r3 = new Report(ReportType.Update);
         r3.addReportDescription("Aisle 12 has been cleaned up");
         
+        
     }
     
     public static void populateListModel(){
-        
-        for(int i = 0; i < report.getAllReports().size(); i++){
-            reportListModel.add(i, report);     
+        reportListModel.clear();
+        for(int i = 0; i < Report.getAllReports().size(); i++){
+            reportListModel.add(i,Report.getAllReports().get(i)); 
+            
+              
+            
         }
+        
     }
     
     

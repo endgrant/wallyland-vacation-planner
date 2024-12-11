@@ -74,5 +74,9 @@ public class Report {
         }
         else return this.description;
     }
-
+    @Override
+    public String toString(){
+        return this.ID + " | "+   getReportDescription();
+        
+    }
 }
