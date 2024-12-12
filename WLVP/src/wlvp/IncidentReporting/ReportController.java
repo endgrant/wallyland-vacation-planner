@@ -5,6 +5,7 @@
 package wlvp.IncidentReporting;
 
 import javax.swing.DefaultListModel;
+import wlvp.WLVP;
 
 /**
  *
@@ -28,16 +29,21 @@ public class ReportController {
         
         
         reportDetailView = new ReportDetailView();
-        reportDetailView.setSize(600, 600);
         
         reportView = new IncidentReportsView();
-        reportView.setSize(600, 600);
         
-        newReportView = new NewReportView();
-        newReportView.setSize(600,600);
-        
-        
+        newReportView = new NewReportView(); 
     }
+    
+    
+    /**
+     * Navigates to the IncidentReportsView
+     */
+    public static void navigateToReportsView() {
+        WLVP.closeOtherWindows();
+        reportView.setVisible(true);
+    }
+    
     
     public static void openReportDetailView(){
         report =  reportView.reportViewList.getSelectedValue();

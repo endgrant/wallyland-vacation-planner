@@ -1,6 +1,7 @@
 package wlvp.AccountCreation;
 
 import javax.swing.JOptionPane;
+import wlvp.IncidentReporting.ReportController;
 import wlvp.ParkPass.ParkPassController;
 
 /**
@@ -218,7 +219,7 @@ public class AccountCreationView extends javax.swing.JFrame {
                 ParkPassController.navigateToParkPass();
             } else if (userType.isAssignableFrom(Employee.class)) {
                 // User is an Employee
-                
+                ReportController.navigateToReportsView();
             }
         }
     }//GEN-LAST:event_loginButtonActionPerformed
