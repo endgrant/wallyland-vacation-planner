@@ -4,6 +4,7 @@
  */
 package wlvp.Attraction;
 
+import java.awt.Color;
 import wlvp.Itinerary.EventSlot;
 import wlvp.Itinerary.ItineraryController;
 
@@ -19,6 +20,9 @@ public class AttractionDetailsView extends javax.swing.JFrame {
      */
     public AttractionDetailsView() {
         initComponents();
+        jPanel1.setBackground(Color.decode("#B6DCD4"));
+        getContentPane().setBackground(Color.decode("#B6DCD4"));
+
     }
 
     public void updateDetailsView() {
@@ -79,6 +83,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
 
         detailStatusTextField.setEditable(false);
 
+        backButton.setBackground(new java.awt.Color(249, 221, 134));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +91,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
             }
         });
 
+        addToItineraryButton.setBackground(new java.awt.Color(249, 221, 134));
         addToItineraryButton.setText("Add to Itinerary");
         addToItineraryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +99,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
             }
         });
 
+        toAttractionButton.setBackground(new java.awt.Color(249, 221, 134));
         toAttractionButton.setText("Attractions");
         toAttractionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
