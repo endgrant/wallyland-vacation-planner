@@ -4,18 +4,20 @@
  */
 package wlvp.Itinerary;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import wlvp.Attraction.AbstractAttraction;
 import wlvp.Attraction.AttractionController;
+import wlvp.Attraction.AttractionDetailsView;
 import wlvp.ParkPass.ParkPassController;
 
 /**
- *
  * @author madle
+ * @author Grant
  */
 public class ItineraryView extends javax.swing.JFrame {
-
-    private DefaultListModel<EventSlot> listModel = new DefaultListModel();
+    private final DefaultListModel<EventSlot> listModel = new DefaultListModel();
 
     /**
      * Creates new form ItineraryView
@@ -23,8 +25,10 @@ public class ItineraryView extends javax.swing.JFrame {
     public ItineraryView() {
         initComponents();
         itineraryList.setModel(listModel);
+        getContentPane().setBackground(Color.decode("#B6DCD4"));
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,11 +48,13 @@ public class ItineraryView extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(252, 210, 44));
 
-        ItineraryLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ItineraryLabel.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         ItineraryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ItineraryLabel.setText("Itinerary");
 
+        addButton.setBackground(new java.awt.Color(249, 221, 134));
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +64,7 @@ public class ItineraryView extends javax.swing.JFrame {
 
         currentIntineraryLabel.setText("Current Itinerary");
 
+        detailsButton.setBackground(new java.awt.Color(249, 221, 134));
         detailsButton.setText("View Details");
         detailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +72,7 @@ public class ItineraryView extends javax.swing.JFrame {
             }
         });
 
+        removeButton.setBackground(new java.awt.Color(249, 221, 134));
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +83,7 @@ public class ItineraryView extends javax.swing.JFrame {
         itineraryList.setModel(listModel);
         jScrollPane2.setViewportView(itineraryList);
 
+        backButton.setBackground(new java.awt.Color(249, 221, 134));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,13 +97,13 @@ public class ItineraryView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(currentIntineraryLabel)
                             .addComponent(backButton))
                         .addGap(56, 56, 56)
-                        .addComponent(ItineraryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ItineraryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,12 +133,30 @@ public class ItineraryView extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleParent(this);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void detailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsButtonActionPerformed
-       AttractionController.navigateToAttractionDetailsView();
+        EventSlot selectedEventSlot = getSelectedEventSlotFromView(); // Helper method to fetch selected EventSlot
+
+        if (selectedEventSlot != null) {
+            AbstractAttraction selectedAttraction = selectedEventSlot.getAttraction(); // Extract the attraction
+            AttractionController.navigateToAttractionDetailsView(ItineraryController::navigateToItinerary, selectedAttraction);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please select an event to view details.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_detailsButtonActionPerformed
+
+    // Helper method to retrieve selected EventSlot
+    private EventSlot getSelectedEventSlotFromView() {
+        // Example: If using a JList to display EventSlots
+        if (itineraryList != null && !itineraryList.isSelectionEmpty()) {
+            return (EventSlot) itineraryList.getSelectedValue();
+        }
+        return null;
+    }
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         EventSlot eventToDelete = itineraryList.getSelectedValue();
@@ -139,7 +166,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AttractionController.navigateToAttractionView();
+        AttractionController.navigateToAttractionView(ItineraryController::navigateToItinerary);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

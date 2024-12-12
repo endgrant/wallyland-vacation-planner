@@ -31,7 +31,8 @@ public class Report {
      */
     public Report(ReportType type) {
         this.type = type;
-        this.ID = generateID(); 
+        this.ID = generateID();
+        this.description = "Please Add Description";
         addReport(this);
 
     }
@@ -69,10 +70,16 @@ public class Report {
         return this.ID;
     }
     public String getReportDescription(){
-        if(this.description.isEmpty()){
-            return "No Description";
-        }
-        else return this.description;
+        return this.description;
     }
-
+    
+    public void setReportType(ReportType type){
+        this.type = type;
+    }
+    
+    @Override
+    public String toString(){
+        return this.ID + " | "+   this.description;
+        
+    }
 }

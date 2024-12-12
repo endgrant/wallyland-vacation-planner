@@ -6,13 +6,13 @@ package wlvp.Attraction;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import static wlvp.Attraction.AttractionView.attractionList;
+import wlvp.Itinerary.EventSlot;
 import wlvp.WLVP;
 
 
 /**
- *
  * @author Daniel
+ * @author Grant
  */
 public class AttractionController {
     private static boolean initialized = false;
@@ -23,7 +23,10 @@ public class AttractionController {
     public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
     public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
 
-   
+    
+    /**
+     * Initializes the AttractionController
+     */
     public static void initialize(){
         assert(!initialized);
 
@@ -38,17 +41,45 @@ public class AttractionController {
     }
     
     
+    /**
+     * Navigates to the AttractionView
+     */
     public static void navigateToAttractionView() {
         WLVP.closeOtherWindows();
+        attractionView.setVisible(true);      
+    }
+    
+    
+    /**
+     * Navigates to the AttractionView (parameterized)
+     * @param method The method required to navigate out of the attractions menu
+     */
+    public static void navigateToAttractionView(Runnable method) {
+        WLVP.closeOtherWindows();
+        attractionView.setReturnMethod(method);
         attractionView.setVisible(true);
     }
    
-    public static void navigateToAttractionDetailsView(){
+    
+    /**
+     * Navigates to the AttractionDetailsView
+     * @param method The method required to navigate out of the details menu 
+     * @param selectedAttraction The selected attraction
+     */
+    public static void navigateToAttractionDetailsView(Runnable method, AbstractAttraction selectedAttraction){
+        if (selectedAttraction == null) {
+            javax.swing.JOptionPane.showMessageDialog(null, "No attraction selected!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+    
         WLVP.closeOtherWindows();
+        attraction = selectedAttraction; // Set the selected attraction
+        detailListView.setReturnMethod(method);
         detailListView.updateDetailsView();
         detailListView.setVisible(true);
     }
    
+    
     /**
      * Hides all related windows
      */

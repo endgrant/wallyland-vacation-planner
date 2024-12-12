@@ -4,6 +4,7 @@
  */
 package wlvp.IncidentReporting;
 
+import java.awt.Color;
 import javax.swing.ButtonGroup;
 
 /**
@@ -18,6 +19,7 @@ public class NewReportView extends javax.swing.JFrame {
     public NewReportView() {
         initComponents();
         addButtonsToGroup();
+        getContentPane().setBackground(Color.decode("#B6DCD4"));
     }
     
     
@@ -30,6 +32,7 @@ public class NewReportView extends javax.swing.JFrame {
     public ButtonGroup getButtonGroup1() {
         return buttonGroup1;
     }
+   
     
 
     /**
@@ -52,9 +55,11 @@ public class NewReportView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         reportErrorLabel = new javax.swing.JLabel();
         addReportButton = new javax.swing.JButton();
+        newReportExitWithoutSavingButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         reportTypeLabel.setText("Report Type: ");
 
@@ -70,26 +75,38 @@ public class NewReportView extends javax.swing.JFrame {
 
         jLabel1.setText("Report:");
 
+        addReportButton.setText("Add Report");
+        addReportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addReportButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(reportTypeLabel)
-                        .addGap(37, 37, 37)
-                        .addComponent(incidentRadioButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(feedbackRadioButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateRadioButton))
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(reportTypeLabel)
+                                .addGap(37, 37, 37)
+                                .addComponent(incidentRadioButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(feedbackRadioButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateRadioButton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(149, 149, 149)
+                                .addComponent(reportErrorLabel))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(149, 149, 149)
-                        .addComponent(reportErrorLabel))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(145, 145, 145)
+                        .addComponent(addReportButton)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,51 +118,46 @@ public class NewReportView extends javax.swing.JFrame {
                     .addComponent(incidentRadioButton)
                     .addComponent(feedbackRadioButton)
                     .addComponent(updateRadioButton))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(reportErrorLabel)))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(reportErrorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(addReportButton)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        addReportButton.setText("Add Report");
+        addReportButton.setBackground(new java.awt.Color(249, 221, 134));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-12, 5, -1, -1));
+
+        newReportExitWithoutSavingButton.setText("Exit Without Saving");
+        newReportExitWithoutSavingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newReportExitWithoutSavingButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(newReportExitWithoutSavingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 304, -1, -1));
 
         BackButton.setText("Back");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(addReportButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BackButton)
-                .addGap(17, 17, 17))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addReportButton)
-                    .addComponent(BackButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
+        getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 304, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void newReportExitWithoutSavingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newReportExitWithoutSavingButtonActionPerformed
+       this.setVisible(false);
+       ReportController.navigateToReportsView();
+    }//GEN-LAST:event_newReportExitWithoutSavingButtonActionPerformed
+
+    private void addReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addReportButtonActionPerformed
+       this.setVisible(false);
+       ReportController.addNewReport();
+       ReportController.populateListModel();
+       ReportController.navigateToReportsView();
+       
+    }//GEN-LAST:event_addReportButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,8 +172,9 @@ public class NewReportView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton newReportExitWithoutSavingButton;
     public javax.swing.JLabel reportErrorLabel;
-    private javax.swing.JTextArea reportText;
+    public javax.swing.JTextArea reportText;
     private javax.swing.JLabel reportTypeLabel;
     public javax.swing.JRadioButton updateRadioButton;
     // End of variables declaration//GEN-END:variables

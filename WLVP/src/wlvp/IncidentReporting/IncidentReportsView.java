@@ -4,6 +4,8 @@
  */
 package wlvp.IncidentReporting;
 
+import wlvp.AccountCreation.AccountController;
+
 /**
  *
  * @author alanb
@@ -33,7 +35,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
         reportViewList = new javax.swing.JList<>();
         IncidentReportLabel = new javax.swing.JLabel();
         reviewDetailsButton = new javax.swing.JButton();
-        LogOutButton = new javax.swing.JButton();
+        reportBackButton = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -54,32 +56,41 @@ public class IncidentReportsView extends javax.swing.JFrame {
         IncidentReportLabel.setText("INCIDENT REPORTS");
 
         reviewDetailsButton.setText("View Report Details");
+        reviewDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reviewDetailsButtonActionPerformed(evt);
+            }
+        });
 
-        LogOutButton.setText("Logout");
+        reportBackButton.setText("Back");
+        reportBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportBackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(reviewDetailsButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(createNewButton))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 101, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                .addGap(17, 17, 17)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(reportBackButton)
+                                .addGap(34, 34, 34)
+                                .addComponent(IncidentReportLabel)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(IncidentReportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LogOutButton)
-                        .addGap(16, 16, 16))))
+                        .addComponent(reviewDetailsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(createNewButton)
+                        .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,7 +98,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IncidentReportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LogOutButton))
+                    .addComponent(reportBackButton))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -106,6 +117,16 @@ public class IncidentReportsView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_createNewButtonActionPerformed
 
+    private void reportBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportBackButtonActionPerformed
+        this.setVisible(false);
+        AccountController.navigateToAccountCreation();
+    }//GEN-LAST:event_reportBackButtonActionPerformed
+
+    private void reviewDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewDetailsButtonActionPerformed
+        this.setVisible(false);
+        ReportController.openReportDetailView();
+    }//GEN-LAST:event_reviewDetailsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -113,11 +134,11 @@ public class IncidentReportsView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IncidentReportLabel;
-    private javax.swing.JButton LogOutButton;
     private javax.swing.JButton createNewButton;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JButton reportBackButton;
     public javax.swing.JList<Report> reportViewList;
     private javax.swing.JButton reviewDetailsButton;
     // End of variables declaration//GEN-END:variables
