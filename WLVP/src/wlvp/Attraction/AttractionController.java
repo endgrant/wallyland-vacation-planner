@@ -64,8 +64,9 @@ public class AttractionController {
     /**
      * Navigates to the AttractionDetailsView
      * @param method The method required to navigate out of the details menu 
+     * @param selectedAttraction The selected attraction
      */
-    public static void navigateToAttractionDetailsView(Runnable methodAbstractAttraction selectedAttraction){
+    public static void navigateToAttractionDetailsView(Runnable method, AbstractAttraction selectedAttraction){
         if (selectedAttraction == null) {
             javax.swing.JOptionPane.showMessageDialog(null, "No attraction selected!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         return;

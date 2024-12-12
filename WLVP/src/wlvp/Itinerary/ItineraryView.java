@@ -144,7 +144,7 @@ public class ItineraryView extends javax.swing.JFrame {
 
         if (selectedEventSlot != null) {
             AbstractAttraction selectedAttraction = selectedEventSlot.getAttraction(); // Extract the attraction
-            AttractionController.navigateToAttractionDetailsView(selectedAttraction);
+            AttractionController.navigateToAttractionDetailsView(ItineraryController::navigateToItinerary, selectedAttraction);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Please select an event to view details.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }

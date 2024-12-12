@@ -159,17 +159,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addToItineraryButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="toAttractionButton">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="86" green="dd" red="f9" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Attractions"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toAttractionButtonActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

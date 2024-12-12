@@ -113,14 +113,6 @@ public class AttractionDetailsView extends javax.swing.JFrame {
             }
         });
 
-        toAttractionButton.setBackground(new java.awt.Color(249, 221, 134));
-        toAttractionButton.setText("Attractions");
-        toAttractionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toAttractionButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(

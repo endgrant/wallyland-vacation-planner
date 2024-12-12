@@ -240,7 +240,7 @@ public class ParkPassView extends javax.swing.JFrame {
     }//GEN-LAST:event_inviteGuestButtonActionPerformed
 
     private void attractionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attractionButtonActionPerformed
-            AttractionController.navigateToAttractionView();
+        AttractionController.navigateToAttractionView(ParkPassController::navigateToParkPass);
     }//GEN-LAST:event_attractionButtonActionPerformed
 
     private void creditTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditTextFieldActionPerformed

@@ -7,16 +7,14 @@ package wlvp.Attraction;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import static wlvp.Attraction.AttractionController.attractionList;
-import static wlvp.Attraction.AttractionController.attractionView;
+import wlvp.ParkPass.ParkPassController;
 
 /**
  * @author Daniel
  * @author Grant
  */
 public class AttractionView extends javax.swing.JFrame{
-    private Runnable returnMethod;
+    private Runnable returnMethod = ParkPassController::navigateToParkPass;
     public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
     public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
     public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
@@ -198,7 +196,7 @@ public class AttractionView extends javax.swing.JFrame{
             return;
         }
 
-        AttractionController.navigateToAttractionDetailsView(AttractionController.attraction);
+        AttractionController.navigateToAttractionDetailsView(AttractionController::navigateToAttractionView, AttractionController.attraction);
 
     }//GEN-LAST:event_showDetailsButtonActionPerformed
 
