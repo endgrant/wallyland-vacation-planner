@@ -166,6 +166,7 @@ public class NewReportView extends javax.swing.JFrame {
     private void addReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addReportButtonActionPerformed
        this.setVisible(false);
        ReportController.addNewReport();
+       ReportController.populateListModel();
        ReportController.navigateToReportsView();
        
     }//GEN-LAST:event_addReportButtonActionPerformed
