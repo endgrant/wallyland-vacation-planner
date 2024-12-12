@@ -144,6 +144,12 @@ public class NewReportView extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(newReportExitWithoutSavingButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(addReportButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BackButton)
+                .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,6 +182,7 @@ public class NewReportView extends javax.swing.JFrame {
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     public javax.swing.JButton addReportButton;
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JRadioButton feedbackRadioButton;
