@@ -23,6 +23,15 @@ public class NewReportView extends javax.swing.JFrame {
     }
     
     
+    public void addButtonsToGroup(){
+        buttonGroup1.add(updateRadioButton);
+        buttonGroup1.add(feedbackRadioButton);
+        buttonGroup1.add(incidentRadioButton);
+    }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
    
     
 
