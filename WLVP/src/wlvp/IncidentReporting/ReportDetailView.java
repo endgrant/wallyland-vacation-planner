@@ -37,6 +37,8 @@ public class ReportDetailView extends javax.swing.JFrame {
         reportTypeLabel = new javax.swing.JLabel();
         reportTypeTextField = new javax.swing.JTextField();
         detailBackButton = new javax.swing.JButton();
+        reportIDDetailLabel = new javax.swing.JLabel();
+        IDDetailTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +61,10 @@ public class ReportDetailView extends javax.swing.JFrame {
             }
         });
 
+        reportIDDetailLabel.setText("ID");
+
+        IDDetailTextField.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,9 +78,13 @@ public class ReportDetailView extends javax.swing.JFrame {
                             .addComponent(reportLabel)
                             .addComponent(detailBackButton)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(reportTypeLabel)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(reportTypeLabel)
+                                    .addComponent(reportIDDetailLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(reportTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(reportTypeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                    .addComponent(IDDetailTextField))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -82,7 +92,11 @@ public class ReportDetailView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(detailBackButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reportIDDetailLabel)
+                    .addComponent(IDDetailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reportTypeLabel)
                     .addComponent(reportTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -111,7 +125,7 @@ public class ReportDetailView extends javax.swing.JFrame {
 
     private void detailBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailBackButtonActionPerformed
         this.setVisible(false);
-        ReportController.openReportDetailView();
+        ReportController.navigateToReportsView();
     }//GEN-LAST:event_detailBackButtonActionPerformed
 
     /**
@@ -120,10 +134,12 @@ public class ReportDetailView extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextField IDDetailTextField;
     private javax.swing.JButton detailBackButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea reportDetailsText;
+    private javax.swing.JLabel reportIDDetailLabel;
     private javax.swing.JLabel reportLabel;
     private javax.swing.JLabel reportTypeLabel;
     public javax.swing.JTextField reportTypeTextField;
