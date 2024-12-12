@@ -4,48 +4,44 @@
  */
 package wlvp.Attraction;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import static wlvp.Attraction.AttractionController.attractionList;
-import static wlvp.Attraction.AttractionController.attractionView;
-
 
 
 /**
- *
  * @author Daniel
+ * @author Grant
  */
 public class AttractionView extends javax.swing.JFrame{
-   public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
-   public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
-   public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
-    /**
-     * Creates new form AttractionVIew
-     */
+    private Runnable returnMethod;
+    public static DefaultListModel<AbstractAttraction> rideListModel = new DefaultListModel<>();
+    public static DefaultListModel<AbstractAttraction> restaurantListModel = new DefaultListModel<>();
+    public static ArrayList<AbstractAttraction> attractionList = new ArrayList<>();
+
     
-    public AttractionView() {
-        
+    public AttractionView() {        
         updateListModels();
         initComponents();
-           
     }
+    
+    
+    /**
+     * Updates the attraction lists
+     */
     public static void updateListModels(){
         rideListModel = AttractionController.getRideListModel();
         restaurantListModel = AttractionController.getRestaurantListModel();
         attractionList = AttractionController.attractionList;
-      
-        
     }
-   
     
     
-    
-    
-  
-    
+    /**
+     * Assigns the callback method for when the back button is pressed
+     * @param method The callback method
+     */
+    public void setReturnMethod(Runnable method) {
+        returnMethod = method;
+    }
     
     
     /**
@@ -66,6 +62,7 @@ public class AttractionView extends javax.swing.JFrame{
         restaurantList = new javax.swing.JList<>();
         attractionLabel = new javax.swing.JLabel();
         showDetailsButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,9 +71,19 @@ public class AttractionView extends javax.swing.JFrame{
         restaurantListLabel.setText("Restaurants");
 
         rideList.setModel(rideListModel);
+        rideList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                rideListValueChanged(evt);
+            }
+        });
         rideScrollPane.setViewportView(rideList);
 
         restaurantList.setModel(restaurantListModel);
+        restaurantList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                restaurantListValueChanged(evt);
+            }
+        });
         restaurantScrollPane.setViewportView(restaurantList);
 
         attractionLabel.setText("Attractions");
@@ -88,18 +95,17 @@ public class AttractionView extends javax.swing.JFrame{
             }
         });
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(attractionLabel)
-                .addGap(175, 175, 175))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(showDetailsButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,6 +119,19 @@ public class AttractionView extends javax.swing.JFrame{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(restaurantScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                         .addGap(46, 46, 46))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(showDetailsButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(attractionLabel)
+                        .addGap(175, 175, 175))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addGap(19, 19, 19))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,9 +146,11 @@ public class AttractionView extends javax.swing.JFrame{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rideScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                     .addComponent(restaurantScrollPane))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(showDetailsButton)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,22 +174,35 @@ public class AttractionView extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void showDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDetailsButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedItem;
-        
         if(rideList.getSelectedIndex() != -1){
             rideList.getSelectedIndex();
             
               AttractionController.attraction = rideList.getSelectedValue();
             
-        }
-        else if(restaurantList.getSelectedIndex() != -1){
+        } else if(restaurantList.getSelectedIndex() != -1){
             
             AttractionController.attraction = restaurantList.getSelectedValue();
         }
-        AttractionController.navigateToAttractionDetailsView();
         
+        AttractionController.navigateToAttractionDetailsView(AttractionController::navigateToAttractionView);
     }//GEN-LAST:event_showDetailsButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.setVisible(false);
+        returnMethod.run(); // Return using whichever navigation method is set
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void rideListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_rideListValueChanged
+        if (!restaurantList.getValueIsAdjusting() && !restaurantList.isSelectionEmpty()) {
+            restaurantList.clearSelection();
+        }
+    }//GEN-LAST:event_rideListValueChanged
+
+    private void restaurantListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_restaurantListValueChanged
+        if (!rideList.getValueIsAdjusting() && !rideList.isSelectionEmpty()) {
+            rideList.clearSelection();
+        }
+    }//GEN-LAST:event_restaurantListValueChanged
 
     /**
      * @param args the command line arguments
@@ -177,6 +211,7 @@ public class AttractionView extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel attractionLabel;
+    public javax.swing.JButton backButton;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JList<AbstractAttraction> restaurantList;
     private javax.swing.JLabel restaurantListLabel;
