@@ -17,19 +17,11 @@ public class NewReportView extends javax.swing.JFrame {
      */
     public NewReportView() {
         initComponents();
-        addButtonsToGroup();
+        
     }
     
     
-    public void addButtonsToGroup(){
-        buttonGroup1.add(updateRadioButton);
-        buttonGroup1.add(feedbackRadioButton);
-        buttonGroup1.add(incidentRadioButton);
-    }
-
-    public ButtonGroup getButtonGroup1() {
-        return buttonGroup1;
-    }
+   
     
 
     /**
@@ -53,6 +45,7 @@ public class NewReportView extends javax.swing.JFrame {
         reportErrorLabel = new javax.swing.JLabel();
         addReportButton = new javax.swing.JButton();
         newReportExitWithoutSavingButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,5 +188,6 @@ public class NewReportView extends javax.swing.JFrame {
     public javax.swing.JTextArea reportText;
     private javax.swing.JLabel reportTypeLabel;
     public javax.swing.JRadioButton updateRadioButton;
+     public javax.swing.GroupLayout jPanel1Layout;
     // End of variables declaration//GEN-END:variables
 }
