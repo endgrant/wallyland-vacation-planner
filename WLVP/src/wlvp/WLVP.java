@@ -7,7 +7,10 @@ import wlvp.AccountCreation.Employee;
 import wlvp.Attraction.AttractionController;
 import wlvp.AccountCreation.EmployeeType;
 import wlvp.AccountCreation.Guest;
+import wlvp.IncidentReporting.Report;
 import wlvp.IncidentReporting.ReportController;
+import static wlvp.IncidentReporting.ReportController.report;
+import wlvp.IncidentReporting.ReportType;
 import wlvp.Itinerary.ItineraryController;
 import wlvp.ParkPass.ParkPassController;
 
@@ -44,6 +47,7 @@ public class WLVP {
         // Testing
         ParkPassController.addGuest(AccountController.createGuest("testemail@case.com", "pass1234"));
         ParkPassController.addGuest(AccountController.createGuest("num2email@site.com", "5678word"));
+       
     }
     
     
