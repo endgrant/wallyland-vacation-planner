@@ -13,12 +13,11 @@ import wlvp.Attraction.AttractionDetailsView;
 import wlvp.ParkPass.ParkPassController;
 
 /**
- *
  * @author madle
+ * @author Grant
  */
 public class ItineraryView extends javax.swing.JFrame {
-
-    private DefaultListModel<EventSlot> listModel = new DefaultListModel();
+    private final DefaultListModel<EventSlot> listModel = new DefaultListModel();
 
     /**
      * Creates new form ItineraryView
@@ -29,6 +28,7 @@ public class ItineraryView extends javax.swing.JFrame {
         getContentPane().setBackground(Color.decode("#B6DCD4"));
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,7 +167,7 @@ public class ItineraryView extends javax.swing.JFrame {
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        AttractionController.navigateToAttractionView();
+        AttractionController.navigateToAttractionView(ItineraryController::navigateToItinerary);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
