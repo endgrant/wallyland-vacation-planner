@@ -65,7 +65,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
         });
 
         reportBackButton.setBackground(new java.awt.Color(249, 221, 134));
-        reportBackButton.setText("Back");
+        reportBackButton.setText("Log out");
         reportBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportBackButtonActionPerformed(evt);
