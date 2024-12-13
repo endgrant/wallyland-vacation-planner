@@ -43,6 +43,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        createNewButton.setBackground(new java.awt.Color(249, 221, 134));
         createNewButton.setText("Create New Report");
         createNewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +56,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
 
         IncidentReportLabel.setText("INCIDENT REPORTS");
 
+        reviewDetailsButton.setBackground(new java.awt.Color(249, 221, 134));
         reviewDetailsButton.setText("View Report Details");
         reviewDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +64,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
             }
         });
 
+        reportBackButton.setBackground(new java.awt.Color(249, 221, 134));
         reportBackButton.setText("Back");
         reportBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
