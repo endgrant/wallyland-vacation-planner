@@ -65,6 +65,7 @@ public class ParkPassView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(38, 217, 217));
+        setResizable(false);
 
         parkPassLabel.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         parkPassLabel.setText("Welcome!");
