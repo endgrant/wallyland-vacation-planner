@@ -77,6 +77,7 @@ public class NewReportView extends javax.swing.JFrame {
 
         jLabel1.setText("Report:");
 
+        addReportButton.setBackground(new java.awt.Color(249, 221, 134));
         addReportButton.setText("Add Report");
         addReportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +108,7 @@ public class NewReportView extends javax.swing.JFrame {
                                 .addComponent(updateRadioButton))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
+                        .addGap(159, 159, 159)
                         .addComponent(addReportButton)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );

@@ -65,7 +65,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                           <Component id="addReportButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -156,6 +156,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="addReportButton">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="86" green="dd" red="f9" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Add Report"/>
           </Properties>
           <Events>
