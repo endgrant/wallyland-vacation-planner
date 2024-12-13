@@ -78,6 +78,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
         addToItineraryButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         detailsNameLabel.setText("Name");
 

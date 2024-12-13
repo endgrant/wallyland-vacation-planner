@@ -70,6 +70,7 @@ public class AttractionView extends javax.swing.JFrame{
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         rideListLabel.setText("Rides");
 

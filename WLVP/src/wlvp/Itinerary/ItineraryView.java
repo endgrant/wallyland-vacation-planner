@@ -49,6 +49,7 @@ public class ItineraryView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(252, 210, 44));
+        setResizable(false);
 
         ItineraryLabel.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
         ItineraryLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
