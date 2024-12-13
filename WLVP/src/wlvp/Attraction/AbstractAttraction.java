@@ -55,6 +55,13 @@ public abstract class AbstractAttraction {
     public int getID() {
         return ID;
     }
+    
+    
+    /**
+     * @return String name of the Attraction's type
+     */
+    public abstract String getType();
+    
 
     public LocalDateTime getLastUpdatedTime() {
         return lastUpdatedTime;

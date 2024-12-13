@@ -24,10 +24,16 @@ public class Restaurant extends AbstractAttraction {
         super(ID, attractionStatus, name);
         this.restaurantType = restaurantType;
     }
-
-    public RestaurantType getRestaurantType() {
-        return restaurantType;
+    
+    
+    /**
+     * @return String name of the RestaurantType
+     */
+    @Override
+    public String getType() {
+        return restaurantType.toString();
     }
+    
 
     @Override
     public int calculateWaitTime() {

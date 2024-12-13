@@ -24,11 +24,17 @@ public class Ride extends AbstractAttraction {
         super(ID, attractionStatus, name);
         this.rideType = rideType;
     }
-
-    public RideType getRideType() {
-        return rideType;
+    
+    
+    /**
+     * @return String name of the RideType
+     */
+    @Override
+    public String getType() {
+        return rideType.toString();
     }
 
+    
     @Override
     public int calculateWaitTime() {
         int baseWaitTime = 5;
