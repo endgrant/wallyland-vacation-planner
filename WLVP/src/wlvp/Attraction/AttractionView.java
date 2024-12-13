@@ -102,6 +102,7 @@ public class AttractionView extends javax.swing.JFrame{
             }
         });
 
+        backButton.setBackground(new java.awt.Color(249, 221, 134));
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
