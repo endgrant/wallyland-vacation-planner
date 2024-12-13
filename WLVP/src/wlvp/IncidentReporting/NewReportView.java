@@ -61,6 +61,8 @@ public class NewReportView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         reportTypeLabel.setText("Report Type: ");
 
         incidentRadioButton.setText("Incident");
@@ -75,6 +77,7 @@ public class NewReportView extends javax.swing.JFrame {
 
         jLabel1.setText("Report:");
 
+        addReportButton.setBackground(new java.awt.Color(249, 221, 134));
         addReportButton.setText("Add Report");
         addReportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,25 +92,25 @@ public class NewReportView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(198, 198, 198)
+                        .addComponent(reportErrorLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(reportTypeLabel)
-                                .addGap(37, 37, 37)
+                                .addGap(18, 18, 18)
                                 .addComponent(incidentRadioButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(feedbackRadioButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(updateRadioButton))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(149, 149, 149)
-                                .addComponent(reportErrorLabel))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
+                        .addGap(159, 159, 159)
                         .addComponent(addReportButton)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +121,7 @@ public class NewReportView extends javax.swing.JFrame {
                     .addComponent(incidentRadioButton)
                     .addComponent(feedbackRadioButton)
                     .addComponent(updateRadioButton))
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reportErrorLabel)
@@ -129,9 +132,9 @@ public class NewReportView extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        addReportButton.setBackground(new java.awt.Color(249, 221, 134));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-12, 5, -1, -1));
 
+        newReportExitWithoutSavingButton.setBackground(new java.awt.Color(249, 221, 134));
         newReportExitWithoutSavingButton.setText("Exit Without Saving");
         newReportExitWithoutSavingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

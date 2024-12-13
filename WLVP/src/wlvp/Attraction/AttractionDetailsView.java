@@ -31,7 +31,6 @@ public class AttractionDetailsView extends javax.swing.JFrame {
      * Updates the details fields
      */
     public void updateDetailsView() {
-        Restaurant test = new Restaurant(123, false, "asdasd", RestaurantType.QuickService);
         if (AttractionController.attraction == null) {
             return;
         }
@@ -46,7 +45,7 @@ public class AttractionDetailsView extends javax.swing.JFrame {
         }
 
         detailNameTextField.setText(AttractionController.attraction.getName());
-
+        detailTypeTextField.setText(AttractionController.attraction.getType());
     }
 
     
