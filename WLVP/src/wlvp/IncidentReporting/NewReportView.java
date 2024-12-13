@@ -61,6 +61,8 @@ public class NewReportView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setOpaque(false);
+
         reportTypeLabel.setText("Report Type: ");
 
         incidentRadioButton.setText("Incident");
