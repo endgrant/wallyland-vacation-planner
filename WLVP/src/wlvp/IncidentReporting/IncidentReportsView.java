@@ -42,6 +42,7 @@ public class IncidentReportsView extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         createNewButton.setBackground(new java.awt.Color(249, 221, 134));
         createNewButton.setText("Create New Report");
