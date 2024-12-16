@@ -162,9 +162,6 @@ public class NewReportView extends javax.swing.JFrame {
        
     }//GEN-LAST:event_addReportButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton addReportButton;

@@ -132,9 +132,6 @@ public class ReportDetailView extends javax.swing.JFrame {
         ReportController.navigateToReportsView();
     }//GEN-LAST:event_detailBackButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

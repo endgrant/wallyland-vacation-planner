@@ -131,9 +131,6 @@ public class IncidentReportsView extends javax.swing.JFrame {
         ReportController.openReportDetailView();
     }//GEN-LAST:event_reviewDetailsButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
