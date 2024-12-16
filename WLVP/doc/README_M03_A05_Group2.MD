@@ -1,5 +1,5 @@
 Wallyland Vacation Planner
-Module 4, Activity 2
+Module 5, Activity 2
 Group 2
 
 
